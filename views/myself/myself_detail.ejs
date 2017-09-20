@@ -1,0 +1,84 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <form class="form-horizontal" role="form" name="myselfForm" id="myselfForm" method="post" action="#">
+            <div class="col-md-6 row">
+                <div class="col-md-12">
+                    <!--姓名-->
+                    <div class="form-group">
+                        <label for="myselfname" class="col-sm-2 control-label">名字</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="ubname" id="myselfname"
+                                   placeholder="请输入名字">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <!--学校选择的三级联动-->
+                    <div class="form-group">
+                        <label for="myself_pro" class="col-sm-2 control-label">我的地址</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="location1" id="myself_pro">
+                                <option value="江苏省">江苏省</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="location2" id="myself_city">
+                                <option selected value="苏州市">苏州市</option>
+                                <option>南京市</option>
+                                <option>徐州市</option>
+                                <option>无锡市</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="ubschool" id="myself_school">
+                                <option >苏州大学</option>
+                                <option>苏州科技大学</option>
+                                <option>西交利物浦大学</option>
+                                <option>常熟理工大学</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <!--性别-->
+                    <div class="form-group">
+                        <label for="myself_pro" class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-5">
+                            <input type="radio" id="mydelf_man" name="ubsex" checked value="1"/><label for="mydelf_man">男</label>
+                            <input type="radio" id="mydelf_woman" name="ubsex" value="0"/><label for="mydelf_woman">女</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <!--图像-->
+                    <div class="form-group">
+                        <label for="mydelg_btnimg" class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-9">
+                            <a class="btnimg" id="mydelg_btnimg">上传图片</a>
+                            <ul id="ul_pics" class="ul_pics clearfix"></ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <!--邮箱-->
+                    <div class="form-group">
+                        <label for="myself_email" class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="ubemail" class="form-control" id="myself_email"
+                                   placeholder="请输入邮箱">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <!--提交-->
+                    <button type="button" id="myselfy_detail" class="btn btn-default deliver_btn">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

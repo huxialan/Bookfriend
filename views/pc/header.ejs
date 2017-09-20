@@ -1,0 +1,512 @@
+<link rel="stylesheet" href="/css/header.css"/>
+
+<!--页面顶部导航-->
+<div class="container-fluid">
+    <header class="x_header row" id="index_top">
+        <div class="x_header_left col-md-6">
+            <div id="x_city" class="choose">
+                <span  title="切换城市" id="location"><a href="/pc/choose_city.html" id="location_a">选择城市</a></span>
+                <span id="change_location"></span>
+            </div>
+            <div id="x_choose_school" class="choose">
+                <span title="切换学校" id="choose_school">选择学校</span>
+            </div>
+        </div>
+        <div class="x_header_right col-md-6">
+            <div class="header_list">
+                <table>
+                    <tr>
+                        <td id="user_loginIn">
+                            <%
+                            if(user!=undefined){
+                                %>用户：
+                            <a href="#"><%=user%></a>[ <span id="exitLogin">退出登录</span> ]
+                            <%
+                            }else{%>
+                                <a href="#myModal" data-toggle="modal" data-target="#myModal" id="user_name">登录</a>
+                          <%  }
+                             %>
+
+                        </td>
+                        <td id="register"><a href="#myModal" data-toggle="modal" data-target="#myModal" id="user_regist">注册</a></td>
+                        <td id="play"><a href="#">关于我们</a></td>
+                        <td id="last_header_list"><a href="#">更多</a></td>
+                </table>
+            </div>
+        </div>
+        <!--登陆的模态框-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h2 class="modal-title" id="myModalLabela">登录</h2>
+                        <span style="display: inline-block;font-size: 34px">/&nbsp;&nbsp;</span>
+                        <h2 class="modal-title" id="myModalLabelb">注册</h2>
+                    </div>
+
+                    <div class="modal-body" id="login_main">
+                        <div class="container-fluid">
+                            <!--<div class="main">-->
+                                <div class="logHeader" >
+                                    <small> <span>如有账号，请登录</span></small>
+                                </div>
+                                <div id="show_login"></div>
+                                <div class="f_main">
+                                    <form class="form-horizontal" action="#" method="post" name="myForm_login" id="myForm_login">
+                                        <div class="form-group">
+                                            <label for="inputPhonenumber" class="col-sm-3 control-label">登录名：</label>
+                                            <div class=" col-sm-7">
+                                                <input type="text" name="uphone" class="form-control" id="inputPhonenumber" placeholder="请输入手机号/用户名">
+                                            </div>
+                                            <div class="check_loginR" id="check_usera"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword" class=" col-sm-3  control-label">密码：</label>
+                                            <div class="col-sm-7">
+                                                <input type="password" name="upass" class="form-control" id="inputPassword" placeholder="请输入密码">
+                                            </div>
+                                            <div class="check_loginR" id="check_pass1"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputYzm" class="col-sm-3 control-label">验证码：</label>
+                                            <div class="input-group">
+                                                <div class=" col-sm-4">
+                                                    <input type="authcode" class="form-control" name="yzm" id="inputYzm" placeholder="验证码">
+                                                </div>
+                                                <span id="yzm">
+                                                    <div id="yzm_text">
+                                                    </div>
+                                                    <small style="color:#999999">看不清？</small><a href="javascript:" id="change_yzm">换一张</a>
+                                                </span>
+                                            </div>
+                                            <div class="check_loginR" id="check_yzm"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-7">
+                                                <div class="checkbox" >
+                                                    <label>
+                                                        <input type="checkbox" name="checkboxPass" value="1" id="checkboxPass" style="width: 1em;height: 1em">
+                                                        <small style="color: #666666;">记住密码</small><small style="position: relative;left:6em;"><a href="/forget/pass">忘记密码？</a>|<a href="/regist"> 免费注册</a></small>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-3">
+                                                <button type="button" class="btn" id="login_header">登录</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            <!--</div>-->
+                        </div>
+                        <div class="modal-footer">
+                            <div class="top">您还可以通过以下方式直接登录</div>
+                            <div class="foot">
+                                <a href="/pc/weibo.html"><img class="weibo" src="/img/img_s/weibo.png"/></a>
+                                <a href="/img/img_l/qq.jpg"><img class="qq" src="/img/img_s/qq.png"/></a>
+                                <a href="#"><img class="wechat" src="/img/img_s/wechat.png"/></a>
+                                <a href="#myModal2" style="margin-left:2em"  data-toggle="modal" data-target="#myModal2" ><img class="erweima"src="/img/img_s/erweima.png"/></a>
+                                <!-- 模态框（Modal） -->
+                                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content"  >
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                        data-dismiss="modal" aria-hidden="true">
+                                                    &times;
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel2"style="font-size: 16px;font-weight: 900">
+                                                    二维码登录
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="/img/img_l/barcode.jpg"/>
+                                            </div>
+                                            <div class="modal-footer">
+
+                                                请使用微信扫描二维码登录<br>
+                                                "书来熟往"
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal -->
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+
+
+
+                    <div class="modal-body" id="regist_main">
+                        <div class="container-fluid">
+                            <div class="main">
+                                <div class="logHeader" >
+                                    <small> <span>欢迎注册</span>
+                                    </small>
+                                </div>
+                                <div class="f_main">
+                                    <form class="form-horizontal" action="#" method="post" name="myForm_login" id="myForm_login">
+                                        <div class="form-group">
+                                            <label for="inputuname" class="col-sm-3 control-label">登录名：</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" name="unamea" class="form-control" id="inputuname" placeholder="请输入手机号或用户名">
+                                            </div>
+                                            <div class="check_loginR" id="check_phone"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassworda" class=" col-sm-3  control-label">密码：</label>
+                                            <div class="col-sm-7">
+                                                <input type="password" name="upassa" class="form-control" id="inputPassworda" placeholder="密码由6-20位字母，数字和符号组成">
+                                            </div>
+                                            <div class="check_loginR" id="check_pass"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPasswordaa" class=" col-sm-3  control-label">确认密码：</label>
+                                            <div class="col-sm-7">
+                                                <input type="password" name="upassal" class="form-control" id="inputPasswordaa" placeholder="请再次输入上面的密码">
+                                            </div>
+                                            <div class="check_loginR" id="check_passa"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-3">
+                                                <button type="button" class="btn" id="login_headera" >注册</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-6">
+                                                <div class="checkbox" >
+                                                    <label>
+                                                        <input type="checkbox" name="checkboxPro"  id="checkboxpro" checked="checked" style="width: 1em;height: 1em">
+                                                        <small style="color: #666666;">我已阅读并接受<a href="#">《书来熟往用户协议》</a></small>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </div>
+    </header>
+</div>
+<script src="/js/static/jquery-2.2.2.min.js"></script>
+<!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/j    query-2.2.2.js"></script>-->
+
+<script>
+    //记住密码
+    window.onload=function() {
+        var checkboxPass = document.getElementById('checkboxPass');
+
+        //判断选中了密码，则把保存在账号密码写回到表单
+        if (sessionStorage.getItem('checkboxPass') == '1') {
+            //用于遍历对象
+            var psw="";
+            for(var p in sessionStorage.getItem('psw')){
+                psw+=p+'\n'
+            }
+
+            document.getElementById('checkboxPass').checked = true;
+            document.getElementById('inputPhonenumber').value = sessionStorage.getItem('u_name');
+            document.getElementById('inputPassword').value =sessionStorage.getItem('psw');
+//            alert( typeof sessionStorage.getItem('psw'));
+//            alert(JSON.parse(sessionStorage.getItem('psw')));
+        }else{
+            document.getElementById('checkboxPass').checked = false;
+        }
+    }
+
+
+
+
+    /*验证码*/
+    function yzm(){
+        $.ajax(
+                {
+                    type:'GET',
+                    url:'/yzm',
+                    timeout:3000,
+                    async: false,
+                    success:function(data){
+                        var s=[];
+                        for(var i=0;i<4;i++){
+                            s[i] = data.substr(i,1);
+                        }
+                        $('#yzm_text').html('<span>'+s[0]+'</span><span>'
+                        +s[1]+'</span><span>'+s[2]+
+                        '</span><span>'+s[3]+'</span>');
+                    },
+                    error:function(){
+                        alert('error-----');
+                    }
+                }
+        )
+    }
+
+    $(function(){
+        yzm();
+        $('#change_yzm').click(function(){
+            yzm();
+        })
+    })
+
+
+    /*登陆注册的js*/
+    //$('#myModal').modal({backdrop:false});
+    //$('#myModal').modal('hide');//设置背景
+    $('#myModalLabela').click(function(){
+        $('#myModalLabelb').css('color','#000000')
+        $('#myModalLabela').css('color','#0a12f5')
+
+        $('#login_main').css({'display': 'block'});
+        $('#regist_main').css({'display': 'none'});
+    })
+    $('#myModalLabelb').click(function(){
+        $('#myModalLabela').css('color','#000000')
+        $('#myModalLabelb').css('color','#0a12f5')
+        $('#login_main').css({'display': 'none'});
+        $('#regist_main').css({'display': 'block'});
+    })
+
+    $('#user_name').click(function(){
+        $('#login_main').css({'display': 'block'});
+        $('#regist_main').css({'display': 'none'});
+        $('#myModalLabelb').css('color','#000000')
+        $('#myModalLabela').css('color','#0a12f5')
+    })
+    $('#user_regist').click(function(){
+        $('#login_main').css({'display': 'none'});
+        $('#regist_main').css({'display': 'block'});
+        $('#myModalLabela').css('color','#000000')
+        $('#myModalLabelb').css('color','#0a12f5')
+    })
+
+    /*登陆的模态框  核对电话号码*/
+    $('#login_header').click(function(){
+//        yzm();
+        var  uphone = $('#inputPhonenumber');
+        var pass = $('#inputPassword');
+        var yzm = $('#inputYzm');
+        //对于check  获取对象不能用jquery
+        var checkboxPass = document.getElementById('checkboxPass');
+        //alert(pass.val());
+        // alert(uphone.val());
+        if(uphone.val()!='' && checkPass(pass)){
+            $.ajax(
+                    {
+                        type:'post',
+                        url:'/login',
+                        data:{'uname':uphone.val(),'upass':pass.val(),'yzm':yzm.val()},//表单序列化
+                        timeout:5000,
+                        success:function(data){
+                            if(data=='0'){
+                                $('#show_login').html('用户名或密码错误')
+
+                            }else if(data=='001'){
+                                $('#show_login').html('验证码错误')
+                            }else {
+                                sessionStorage.setItem('u_name',uphone.val());
+                                //成功的时候先保存他是否记住密码
+                                if(checkboxPass.checked){
+                                    var passa={'pass':pass.val()};  //todo 转换成字符串之后保存在session
+                                    sessionStorage.setItem('checkboxPass','1');
+                                    //sessionStorage.setItem('u_name',uphone.val());
+                                    sessionStorage.setItem('psw',pass.val());
+                                }else{
+                                    //sessionStorage.setItem('checkboxPass','');
+                                    sessionStorage.removeItem("checkboxPass");
+                                    sessionStorage.removeItem("psw");
+                                    //sessionStorage.clear();//首先清除session
+                                }
+
+                                $('#user_name').html('用户：'+data.uname+'[ <span id="exitLogin">退出登录</span> ]');
+                                setTimeout(function(){$('#myModal').modal("hide")},300);
+                            }
+                        },
+                        error:function(){
+                            alert('error');
+                        }
+                    }
+            )
+        } else{
+            //alert('bb')
+            return false;
+        }
+    })
+
+
+    /*提交表单之前的核对*/
+    function checkL(){
+        if(checkLoginPhone(uphone) && checkPass(pass)){
+            return true;
+        } else{
+            return false;
+        }
+    }
+    /*核对电话号码*/
+    function checkLoginPhone(uphone){
+        var pattern = /^1[3|4|5|7|8]\d{9}$/;
+        if(pattern.test(uphone.val())){
+            return true;
+        }else{
+            uphone.focus();
+            alert('手机号码不正确')
+            return false;
+        }
+    }
+
+    /*核对邮箱的函数*/
+    function checkMail(mail){
+        var pattern =  /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(pattern.test(mail.val())){
+            return true;
+        }else{
+            mail.focus();
+
+            return false;
+        }
+    }
+    /*密码不能为空*/
+    function checkPass(upass){
+        if(upass.val()==undefined){
+            alert('请输入密码');
+            upass.focus();
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+
+    /*核对注册信息的js*/
+    $('#login_headera').click(function(){
+        var uname = $('#inputuname');
+        //var umail = $('#umaila');
+        var upass = $('#inputPassworda');
+        var upassa = $('#inputPasswordaa');
+        alert(uname.val());
+        if(uname.val()==''){
+            $('#check_phone').html('用户名不能为空');
+            uname.focus();
+        }
+        if(upass.val()==''){
+            $('#check_pass').html('密码不能为空');
+            upass.focus();
+        }
+        if(upass.val()!=upassa.val()){
+            $('#check_passa').html('核对确认密码');
+            upassa.focus();
+        }
+        if(uname.val()!='' && upass.val()!='' && upass.val()==upassa.val()){
+            $.ajax({
+                type:'post',
+                url:'/insert',
+                data:{'uname':uname.val(),'upass':upass.val()},//表单序列化
+                timeout:5000,
+                success:function(data){
+                    //alert(data);
+                    if(data!='0'){
+                        $('#user_loginIn').html('用户：<a href="#?name="'+data+'"">'+data+'</a>  [<span  id="exitLogin">退出登录</span>]')
+                        clearInput(uname,upass,upassa);
+                        setTimeout(function(){$('#myModal').modal("hide")},300);
+                    }else{
+                        alert('请重新注册');
+                    }
+                },
+                error:function(){
+                    alert('error');
+                }
+            });
+        }
+    })
+
+    $('#inputuname').blur(function () {
+        //alert('hello');
+        $.ajax({
+            type:'post',
+            url:'/regist',
+            data:{'uname':$('#inputuname').val()},//表单序列化
+            timeout:5000,
+            success:function(data){
+                //alert(data);
+                //$('#check_phone').html(data);
+                switch(data){
+                    case '1':
+                        $('#check_phone').html('');
+                        $('#umaila').focus();
+                        break;
+                    case '2':
+                        $('#check_phone').html('用户已经存在');
+                        $('#inputuname').focus();
+                        break;
+                    case '3':
+                        $('#check_phone').html('错误');
+                        $('#inputuname').focus();
+                        break;
+                }
+
+            },
+            error:function(){
+                alert('error');
+            }
+        });
+    })
+
+    /*退出登录清除session*/
+        $(document).on('click','#exitLogin',function(){
+        clearInput($('#inputuname'),$('#inputPassworda'),$('#inputPasswordaa'),$('#inputPhonenumber'),$('#inputPassword'));
+        $.ajax({
+            type: 'get',
+            url: '/exitLogin',
+            timeout: 5000,
+            success: function (data) {
+                location.href='';
+            },
+            error: function () {
+                alert('error');
+            }
+        });
+    })
+
+    /*登陆注册之后清除所有的表单内容*/
+    function clearInput(){
+        if(arguments.length==0)
+            return;
+        else{
+            for(var i=0;i<arguments.length;i++){
+                arguments[i].val('');//让所有的清空
+            }
+        }
+    }
+
+
+</script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=45lPXDQF4aKW00LpM2xqp1qfSpd3B9ae"></script>  <!--百度地图api--->
+<script>
+    // 百度地图API功能  后期改进不用百度地图因为百度地图比较慢  todo
+
+    /*header定位地址*/
+    var map = new BMap.Map("location");//地图所属容器
+    //    map.setCurrentCity("北京");//设置当前城市，如果是以城市建筑显示，则必须设置此项
+    //    map.centerAndZoom(point,13); //创建加载地图
+    //    map.setCenter("朝阳");
+    //    map.enableScrollWheelZoom();//设置可以通过鼠标滚动、双击来进行地图的缩放
+    //    map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+    //    map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写
+    //    map.enableKeyboard();//启用键盘上下左右键移动地图
+    var myCity = new BMap.LocalCity();
+    myCity.get(function(result){
+        var cityName = result.name;
+        //alert(cityName);
+        //map.setCenter(cityName);
+        $('#location').html('<a href="#" id="location_a">'+cityName+'</a>');
+        $('#change_location').html('[<a href="pc/choose_city.html">切换城市</a>]');
+    });
+</script>

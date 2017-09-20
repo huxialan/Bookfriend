@@ -1,0 +1,19 @@
+<header class="row store_head">
+    <div class="col-md-3 col-xs-7 col-md-offset-1">
+        <h2>书来熟往~商家版</h2>
+    </div>
+    <div class="col-md-2 col-xs-5 col-md-offset-6 row">
+        <div class="col-md-7 col-xs-7 ">
+            <%
+            if(user!=undefined){
+            %>用户：
+            <a href="#"><%=user%></a>
+            <%
+            }else{%>
+            <a href="/">登录</a>
+            <%  }
+            %>
+        </div>
+        <div class="col-md-5 col-xs-5"><i class="glyphicon glyphicon-folder-open"></i></div>
+    </div>
+</header>

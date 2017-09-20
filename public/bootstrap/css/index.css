@@ -1,0 +1,52 @@
+
+
+.bgcolor{
+    background-color: #00A3CF;
+}
+
+.screen_height{
+    height: 750px;
+}
+
+.center{
+    text-align: center;
+}
+
+h1{
+    display: inline-block;
+}
+
+.img_logo{
+    width: 100px;
+    height: 100px;
+}
+
+.img_dog{
+    width: 200px;
+    height: 200px;
+}
+
+.margin_bottom{
+    margin-bottom:20px ;
+}
+
+.side-nav{
+    position: fixed;
+    top: 45%;
+    right: 20px;
+    z-index: 1;
+}
+
+.side-nav .nav-side-nav{
+    text-align: center;
+    margin: 0;
+    padding-left: 0;
+}
+
+.side-nav .nav-side-nav >a >li{
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    background: red;
+}

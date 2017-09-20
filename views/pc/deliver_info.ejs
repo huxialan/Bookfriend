@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>书来熟往</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/pc/deliver_info.css"/>
+    <style>
+        .btnimg{-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;-o-border-radius:3px;border-radius:3px;
+            background-color: #ff8400;color: #fff;display: inline-block;line-height: 28px;text-align: center;
+            width: 72px;transition: background-color 0.2s linear 0s;border:none;cursor:pointer;margin:0 0 20px;}
+        .btnimg:hover{background-color: #e95a00;text-decoration: none}
+        .ul_pics li{float:left;width:160px;height:160px;border:1px solid #ddd;padding:2px;text-align: center;margin:0 5px 10px 0;list-style:none;}
+        .ul_pics li a{    position: relative;
+            top: 0;
+            left: 60px;
+            text-decoration: none;
+            z-index: 2;}
+        .ul_pics li .img{width: 160px;height: 140px;display: table-cell;vertical-align: middle;position:absolute;/*让p在图像之上*/}
+        .ul_pics li img{max-width: 160px;max-height: 140px;vertical-align: bottom}
+        .ul_pics li p{
+            position: relative;/*让p在图像之上*/
+            top:100px;
+            color:blue;
+        }
+        #my_deliver{width: 100%}
+        #school_select{display: none;}
+        .progress{position:relative;padding: 1px; border-radius:3px; margin:60px 0 0 0;}
+        .bar {background-color: green; display:block; width:0%; height:20px; border-radius:3px; }
+        .percent{position:absolute; height:20px; display:inline-block;top:3px; left:2%; color:#fff }
+    </style>
+</head>
+<body>
+<% include header.ejs %>
+<div class="container-fluid">
+    <div class="deliver_head row">
+        <div class="x_logo col-md-3 col-md-offset-1">
+            <div class="deliver_headImg" title="数来熟往">
+            </div>
+        </div>
+        <div class=" col-md-7 col-xs-12">
+            <h1 style="float: left;">免费发布信息</h1>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="col-md-10 col-md-offset-1 deliver_speak">
+        <span>您今天还可免费发帖 <span id="deliver_today">6</span>
+            条，本月还可免费发帖 <span id="deliver_month">8</span> 条。</span>
+            <a href="#">了解用户等级与发帖规则</a>
+        </div>
+        <div class="col-md-8 col-md-offset-1 deliver_main">
+
+            <form action="#" method="post" role="form" id="deliver_form" onsubmit="return check_deliver()">
+                <h3 class="deliver_mainHd">基础信息</h3>
+
+                <div class="form-group row">
+                    <label for="deliver_title" class="col-sm-2 control-label">商品标题</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control " name="uptitle" placeholder="商品标题" id="deliver_title"/>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1" id="deliver_titleInfo">* 标题在3~20个汉字之间</div>
+                </div>
+                <div class="form-group row">
+                    <label for="deliver_kind" class="col-sm-2 control-label">商品类型</label>
+                    <div class="col-md-4">
+                        <select class="form-control" name="upkind" id="deliver_kind">
+                            <option value="书籍">书籍</option>
+                            <option value="文具">文具</option>
+                            <option value="工艺">工艺</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+                <div class="form-group row">
+                    <label for="deliver_old_new" class="col-sm-2 control-label">新旧</label>
+                    <div class="col-md-4">
+                        <select class="form-control" name="upnewold" id="deliver_old_new">
+                            <option value="全新">全新</option>
+                            <option value="95成新">95成新</option>
+                            <option value="9成新">9成新</option>
+                            <option value="8成新">8成新</option>
+                            <option value="7成新及以下">7成新及以下</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+                <div class="form-group row">
+                    <label for="deliver_area" class="col-sm-2 control-label">交易方式</label>
+                    <div class="col-sm-4 deliver_select_op" id="deliver_select_op">
+                        <div id="my_deliver">
+                            <input type="checkbox" name="updelivery" value="1" id="1"/><label for="1">我来送货(只限本校)</label>
+                            <!--点击送货上门显示和隐藏-->
+                            <!--todo 要写一个判断学校不能为空的函数-->
+                            <div id="school_address" >
+                                <select id="school_select" name="upschool">
+                                    <option value="">--请选择学校--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" name="uppost" value="1" id="2"/><label for="2">约定</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="upappoin" value="1" id="3"/><label for="3">对方来取</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="upinvite" value="1" id="4"/><label for="4">邮寄</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-md-offset-1" id="deliver_areaInfo" >
+                        *可多选
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="deliver_price" class="col-sm-2 control-label">转让价格</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control " name="upprice" value="面议" id="deliver_price"/>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1" id="deliver_priceInfo">*  保留两位小数</div>
+                </div>
+                <div class="form-group row">
+                    <label for="deliver_detail" class="col-sm-2 control-label">详细介绍</label>
+                    <div class="col-md-5" id="deliver_detail">
+                        <textarea id="noise" name="noise" class="widgEditor nothing" ></textarea>
+                    </div>
+                    <div class="col-md-5" id="deliver_detailInfo">* 不能少于8个汉字</div>
+                </div>
+                <div class="form-group row">
+                    <label for="deliver_area" class="col-sm-2 control-label">上传图片</label>
+                    <div class="col-sm-7">
+                        <!--图片上传-->
+                        <a class="btnimg" id="btnimg">上传图片</a>
+                        <ul id="ul_pics" class="ul_pics clearfix"></ul>
+
+                    </div>
+                    <div class="col-sm-12" id="deliver_imgInfo"></div>
+                </div>
+
+                <h3 class="deliver_mainHd">联系方式</h3>
+                <div class="form-group row">
+                    <label for="deliver_ahthor" class="col-sm-2 control-label">联系人</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control "name="upauthor" placeholder="联系人" id="deliver_ahthor"/>
+                    </div>
+                    <div class="col-md-6" id="deliver_ahthorInfo"></div>
+                </div>
+                <div class="form-group row">
+                    <label for="deliver_phone" class="col-sm-2 control-label">联系电话</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control "name="upphone" placeholder="联系电话" id="deliver_phone"/>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1" id="deliver_phoneInfo">* 只支持手机号码</div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default deliver_btn">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include right_nav.ejs %>
+<% include footer.ejs %>
+<script src="js/static/jquery-2.2.2.min.js"></script>
+<script src="js/static/widgEditor.js"></script><!--编辑器-->
+<script type="text/javascript" src="plupload/plupload.full.min.js">//上传文件插件
+</script>
+<script type="text/javascript" src="js/pc/deliver.js" ></script>
+</body>
+</html>

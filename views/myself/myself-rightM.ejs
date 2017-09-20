@@ -1,0 +1,188 @@
+
+    <link href="../fontAwesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"/>
+    <link href="../jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet">
+    <style>
+        body{
+            background:transparent url("../img/img_h/hxmybg.png");
+            color: #666;
+            opacity: 0.9;
+        }
+        .hmenu{
+            width: 75%;
+            position:relative;
+            top: 2em;
+            margin: auto;
+            border: solid 1px #edebf1;
+        }
+
+        .panel{
+            line-height: 1.5em;
+            box-shadow: 2px 2px 2px #ccc;
+        }
+        .person-photo{
+            width:82px;
+            height:82px;
+            background: url(../img/img_h/tx0.jpg) no-repeat;
+            border-radius: 50%;
+        }
+        .person-photo span {
+            display:none;
+            text-decoration:none;
+            cursor:pointer;
+        }
+        .person-photo:hover span {
+            display:block;
+            width: 1.6em;
+            height: 1.6em;
+            text-align: center;
+            border-radius: 50%;
+            position: relative;
+            top: 4em;
+            margin: auto;
+            color:#FFFFFF;
+            background:grey;
+            filter:alpha(opacity=60);
+            -moz-opacity:0.5;
+            opacity: 0.8;
+        }
+
+        #progressbar{
+            width: 10em;
+            height: 1em;
+            color:red;
+
+        }
+        #userMessage{
+            font-size: 12px;
+            color:#666;
+            margin-top: 1em;
+        }
+        .hhfoot{
+            margin-top: 8em;
+            background-color: #f5f8f9;
+        }
+         .mymessage,.hhfoot a{
+           color:#666
+        }
+        .mymessage:hover,.hhfoot a:hover{
+           color:#1d94d1;
+            text-decoration: none;
+        }
+        .index{
+            color:#333;
+
+            padding-bottom:1em;
+        }
+        .index:hover{
+            color:#ED7612;
+        }
+       #allorder,#readyorder,#oldorder{
+            margin-top: 2em;
+           text-align:center;
+        }
+</style>
+</head>
+<body>
+<div class="row hmenu">
+    <div class="row col-md-offset-3 col-md-9">
+
+        <!--top-->
+        <div class="panel">
+            <div class="panel-body">
+                <div class="col-md-2 person-photo" style="margin-left: 2em">
+                        <span><i class="icon-edit" id="eidt"></i></span>
+                    </div>
+                <div class="col-md-7" style="margin-left: 1em">
+                        <div class="row  col-md-8" style="margin-top: 1em;"><span><label>登录名:</label><strong id="uname" style=" position: relative;left:0.5em">184*****045</strong></span></div>
+                        <div class="row  col-md-12" style=" display: flex;flex-direction: row;">
+                            <label>资料完成度：</label>
+                            <div id="progressbar" style=" position: relative;top:0.2em"></div>
+                            <div style="margin-left: 0.5em">20%</div>
+                            <div style="margin-left: 1em"><a href="#">立即完善</a></div>
+                        </div>
+
+                    </div>
+                <div class="col-md-2" style="border-left: solid 1px #DDDDDD; padding-left: 3em">
+                       <div class="row"><a href="#"class="mymessage"><strong>我的消息</strong></a></div>
+                        <div class="row" id="userMessage">
+                            亲，没有新消息了哟~
+                        </div>
+                        <hr style="margin-left: -1em;margin-top: 0.5em">
+                        <div class="row" style="position: relative;top: -1em;font-size: 12px">
+                            <a href="#" >邀请好友</a>
+                        </div>
+
+                    </div>
+                <br>
+                <div class="hhfoot">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-4">
+                            <a href="#">我的金币:</a>&nbsp;&nbsp;&nbsp;<span id="ugold">0 </span>&nbsp;个
+                        </div>
+                        <div class=" col-md-4">
+                            <a href="#">我的等级:</a>&nbsp;&nbsp;&nbsp;<span id="ugrade">0 </span>&nbsp;级
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-4">
+                            <a href="#">银行卡:</a>&nbsp;&nbsp;&nbsp;<span id="ucard">0 </span>&nbsp;张
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#">卡券管理:</a>&nbsp;&nbsp;&nbsp;<span id="cardmanage">0 </span>&nbsp;级
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+
+
+        <!--main-->
+       <span> <strong style="color:#ED7612;margin-left: 1em;">|</strong>&nbsp;&nbsp;&nbsp;<a href="#" class="index"><small>我的订单</small></a></span>
+        <div class="panel">
+                <ul id="myTab" class="nav nav-tabs" style="background-color:#DFDFDF;border-left:0;margin-top:-1px;margin-left: -1px;margin-right: -1px">
+                    <li class="active"><a href="#allorder" data-toggle="tab">全部订单</a></li>
+                    <li><a href="#readyorder" data-toggle="tab">待支付</a></li>
+                    <li><a href="#oldorder" data-toggle="tab">待收货</a></li>
+
+                </ul>
+            <div class="panel-body">
+                <div id="myTabContent" class="tab-content" style="min-height: 10em">
+                    <div class="tab-pane fade in active" id="allorder">
+                        <p>亲，你还没有订单哦~~~</p>
+                        <p>赶紧去下单吧！</p>
+                    </div>
+                    <div class="tab-pane fade" id="readyorder">
+                        <p>亲，你还没有未完成的订单哦~~~</p>
+                    </div>
+                    <div class="tab-pane fade" id="oldorder">
+                        <p>亲，你还没有已完成的订单哦~~~</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span style="margin-bottom: 1em"> <strong style="color:#ED7612;margin-left:1em;">|</strong>&nbsp;&nbsp;&nbsp;<a href="#" class="index"><small>我的收藏</small></a></span>
+        <div class="panel">
+            <div class="panel-body"style="min-height: 10em;text-align: center">
+                亲，你还没有收藏哦，赶紧去&nbsp;<a href="#">看看</a>&nbsp;吧
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="../js/static/jquery-2.2.2.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+
+<script type="text/javascript">
+
+    $(function() {
+//    进度条
+        $("#progressbar").progressbar({
+            value: 20
+        });
+    });
+</script>

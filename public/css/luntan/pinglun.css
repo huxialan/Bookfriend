@@ -1,0 +1,47 @@
+.active{
+    background-color: #FFC600;
+}
+.plk{
+    height: 2em;
+    display: inline-block;
+    vertical-align: middle;
+}
+/*论坛主板切换*/
+.c2{
+    display: none;
+}
+.c3{
+    display: none;
+}
+
+/*评论框样式*/
+.tab1_pinglun1{
+    width: 630px;
+    height: 32px;
+    margin-top: 8px;
+}
+/*.tab1_pinglun2{*/
+/*width: 650px;*/
+/*height: 80px;*/
+/*margin-top: 8px;*/
+/*}*/
+/*赞图标*/
+.zan{
+
+    height: 33px;
+    margin-top: 15px
+}
+
+/*功能栏，评论点赞转发收藏	*/
+.gongnenglan{
+    background-color: #F9F4E2;margin-top: 8px;
+}
+.gongnenglan div{
+    display: inline-block;
+    margin-left: 38px;
+}
+
+/*发送按钮*/
+.send{
+    height: 32px;margin-top: 8px;width: 55px;margin-left: -5px
+}

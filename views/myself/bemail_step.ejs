@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置绑定邮箱</title>
+    <link href="../fontAwesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"/>
+    <style>
+        body{
+            background-color: #f5f6f8;
+        }
+        .hmenu{
+            width: 80%;
+            text-align: center;
+            font-size: 14px;
+            margin: auto;
+            box-shadow: 2px 2px 2px #ccc;
+            background-color: #f5f6f8;
+        }
+
+        .index{
+            color:#777;
+        }
+        .index:hover{
+            color:#ED7612;
+        }
+        .breadcrumb{
+            text-align: left;
+            background-color: #f5f6f8;
+        }
+        .breadcrumb > li + li:before {
+            color:#333;
+            content: ">\00a0";
+        }
+        ol li{
+            font-size: small;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color:#333;
+        }
+        .hmain{
+            line-height:1.5em;
+        }
+        .form-group{
+               margin-top: 2em;
+           }
+        .panel{
+            margin-top: -1.5em;
+            box-shadow: 1px 1px 1px 1px #999;
+
+        }
+        .panel-heading{
+            background-color: #f9f9f9;
+
+        }
+        .panel-title{
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+            margin-top: 0.5em;
+        }
+
+        /*下划线*/
+        .panel-title a{
+            text-decoration: none;
+            border-bottom: solid 2px #ED7612;
+            display: block;
+            padding-bottom: 1em;
+            width: 10em;
+        }
+        .hbound{
+            padding-left: 2em;
+        }
+
+        label{
+            font-weight: 500;
+            color: #333;
+        }
+        .himg{
+           height: 5em;
+            margin-top: 2em;
+        }
+        #bemailcode{
+            border-radius: 4px;
+        }
+        #authcodeImg{
+            /*width: 7em;*/
+            height: 2.5em;
+            vertical-align: middle;
+            font-size: 14px;
+            font-weight: bold;
+            background-color:aquamarine;
+        }
+        #change_authcode{
+            position: relative;
+            top: 0.5em;
+        }
+        #bestepbtn{
+            margin-top: 1em;
+            width: 10em;
+            color: #fff;
+            font-weight: 900;
+        }
+      #bestepbtn:focus,#bestepbtn_back:focus{
+            outline:0;
+        }
+        @font-face {
+            font-family: myfont;
+            src:url('./fontAwesome/font/VINERITC.TTF');
+        }
+        .hwhy{
+            margin-top: 3em;
+            margin-left: 8em;
+            font-size: 12px;
+            color:#666;
+            text-align: left;
+        }
+        .hwhy>p:first-child{
+            font-size: 14px;
+            color:#333;
+        }
+        .hwhy>a{
+            text-decoration: none;
+        }
+        .panel-footer{
+            border-top: 0;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="row hmenu">
+    <div class="hmain col-md-offset-3 col-md-9">
+        <div class="row ">
+            <ol class="breadcrumb">
+                <li><strong style="color:#ED7612">|</strong>&nbsp;&nbsp;<a href="#" class="index">我的书来熟往</a></li>
+                <li class="active">设置绑定邮箱</li>
+            </ol>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title"><a href="#"><div class="hbound">设置绑定邮箱</div></a></h4>
+            </div>
+
+            <div class="panel-body">
+
+                <div id="bestepone">
+                    <div class="row himg">
+                        <img src="../img/img_h/estep1.png"/>
+                    </div>
+
+                    <div class="row" style="text-align: center;">
+                        <form action="#" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class=" col-md-offset-2 col-md-3 control-label">验证邮箱：</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="bemail" placeholder="请输入邮箱" required="required">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-offset-2 col-md-3 control-label">验证码：</label>
+                                <div class="input-group">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="bemailcode" placeholder="请输入验证码">
+                                    </div>
+                                    <div id="authcodeImg" class="col-md-3">d4fw</div>
+                                    <a href="javascript:" id="change_authcode">换一张</a>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-warning" id="bestepbtn">下一步</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div id="besteptwo">
+                    <div class="row himg">
+                        <img src="../img/img_h/estep2.png"/>
+                    </div>
+                    <div class="row" style="text-align: center;margin-top: 3em">
+                        <p>恭喜您，您的邮箱已绑定成功！</p>
+                        <p> <a href="#"><button type="button" class="btn btn-link" id="bestepbtn_back">返回</button></a>
+                           继续完善个人资料
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="panel-footer">
+                <div class="row hwhy">
+                    <p>为什么验证邮箱？</p>
+                    <p>1.验证邮箱可加强账户安全，您可以使用已验证的邮箱快速找回密码或支付密码。</p>
+                    <p>2.如验证邮箱遇到问题？请<a href="#">联系客服。</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/static/jquery-2.2.2.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function (){
+        $('#bestepone').show();
+        $('#besteptwo').hide();
+        $('#bestepbtn').click(function(){
+            $('#bestepone').hide();
+            $('#besteptwo').show();
+        })
+    })
+
+</script>
+</body>
+</html>

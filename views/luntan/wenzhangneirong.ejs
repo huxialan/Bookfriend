@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Blogname a Blogging Category Flat Bootstarp  Responsive Web Template | Home :: w3layouts</title>
+    <link href="bootstrap/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/luntan/style.css" rel='stylesheet' type='text/css' />
+    <!--<link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>-->
+    <link rel="stylesheet" href="css/common/common.css"/>
+    <link href="css/yangshi.css" rel='stylesheet' type='text/css' />
+
+    <!--<link rel="stylesheet" href="js/static/lunbo/style.css"/>-->
+    <link rel="stylesheet" href="css/luntan/xuancard.css"/>
+    <link rel="stylesheet" href="fontAwesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Blogname Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"
+            />
+
+    <script src="js/jquery-2.2.2.js"></script>
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <!--end slider -->
+    <!--script-->
+    <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script src="jquery-ui-1.11.4.custom/bootstrap.js"></script>
+
+
+    <script type="text/javascript" src="js/luntan/move-top.js"></script>
+    <script type="text/javascript" src="js/luntan/easing.js"></script>
+
+
+
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+            });
+        });
+
+        function huifu(a){
+            var k =a;
+            if($('#w'+k+'').val()!=''){
+                $.ajax(
+                        {
+                            type: 'post',
+                            url: 'http://localhost:3000/luntantext/huifu',
+                            data: {'huifu': $('#w'+k+'').val(),'kid':k},
+                            timeout: 5000,
+                            success: function (data) {
+                              location.reload();
+                            },
+                            error: function (error) {
+                            }
+                        }
+                )
+            }else{
+                alert('请填写内容')
+            }
+        }
+
+    </script>
+    <!---->
+
+
+
+    <style>
+        .touxiang{
+            margin: auto;
+            margin-left: 110px;
+
+        }
+        #touxiang{
+            width: 50px;
+            height: 50px;
+            border-radius:50px;
+            border:solid rgb(100,100,100) 0px;
+
+            margin-left: 18px;
+        }
+    </style>
+
+</head>
+<body>
+<!---strat-banner---->
+<div class="banner">
+    <% include ../pc/header.ejs %>
+
+
+
+    <div class="container">
+        <% include ../pc/right_nav.ejs %>
+        <div class="banner-head">
+            <h1>畅言校园</h1>
+            <h2>speak out freely</h2>
+        </div>
+
+    </div>
+</div>
+<!---//End-banner---->
+<div class="content">
+    <div class="container">
+        <div class="content-grids">
+            <div class="col-md-8 content-main">
+                <div class="content-grid">
+                    <div class="content-grid-head">
+                        <h1 style="font-weight:400;font-size: 20px"><%=tiezi.ptitle%></h1>
+                        <h4><a style="float: left">Posted by: <%=tiezi.ubname%></a><%=tiezi.pptime%></h4>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="content-grid-single">
+
+                        <p><%=tiezi.ppcontent%></p>
+                        <%if(tiezi.ppimg!=''){%>
+                            <img class="single-pic" style="width: 150px;height: 150px" src="<%=tiezi.ppimg%>" alt=""/>
+                        <%}%>
+                        <div class="content-form">
+                            <h3>回复</h3>
+                            <form action=""  >
+                                <textarea placeholder="Message" id="w<%= tiezi.ppid %>"></textarea>
+                                <input type="button" value="回复" id="<%= tiezi.ppid %>" onclick="return huifu(this.id)"/>
+                            </form>
+                        </div>
+                        <div class="comments">
+                            <h3>回复</h3>
+                            <%huifu.forEach(function(huifua){
+                            if(huifua.prflag==huifua.ppid){%>
+                            <div class="comment-grid">
+                                <img src="<%=huifua.ub_img%>" style="width: 50px;height: 50px" alt=""/>
+                                <div class="comment-info">
+                                    <h4><%=huifua.ubname%></h4>
+                                    <P><%=huifua.prcontent%></P>
+                                    <a href="#">回复</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                           <% }
+                                   huifu.forEach(function(thuifua){
+                           if(huifua.prid == thuifua.prflag && thuifua.prcontent != ''){%>
+                           <div class="comment-grid" style="margin-left: 50px">
+                           <img src="<%=thuifua.ub_img%>" style="width: 50px;height: 50px" alt=""/>
+                            <div class="comment-info">
+                                <h4><%=thuifua.ubname%> 回复：<%=huifua.ubname%></h4>
+                                <P><%=thuifua.prcontent%></P>
+                                <a href="#">回复</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                           <%}
+                           }) %>
+
+                                    <%})%>
+
+                            <div class="pages">
+                                <ul>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">6</a></li>
+                                    <li><a href="#">上一页</a></li>
+                                    <li><a href="#">下一页</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 content-main-right c1">
+                <!--<div class="search">-->
+                <!--<h3>搜索帖子</h3>-->
+                <!--<form>-->
+                <!--<input type="text" value="" onfocus="this.value=''" onblur="this.value=''">-->
+                <!--<input type="submit" value="">-->
+                <!--</form>-->
+                <!--</div>-->
+                <div class="categories">
+                    <!--<li class="active"><a href="#">Donec quis dui at dolor tempor</a></li>-->
+                    <!--<li><a href="#">Vestibulum commodo felis quis tort</a></li>-->
+                    <!--<li><a href="#">Fusce pellentesque suscipit</a></li>-->
+                    <a href="#" class="touxiang"><img style="width: 55px;height: 55px" src="<%=tiezi.ub_img%>" id="touxiang"></a>
+                    <div style="margin-left: 140px">
+                        <a href="#" style="color: #000000"><p>AAA</p></a>
+                    </div>
+                    <p  style="margin-left: 65px"> 郑 州 航 空 工 业 管 理 学 院</p>
+                    <div style="margin-left: 130px;margin-top: 30px">个人简介</div>
+                    <li class="active"><a href="#" style="margin-left: 97px">一个很苦逼的程序员</a></li>
+                </div>
+                <!--<div class="archives">-->
+                <!--<h3>精品贴</h3>-->
+                <!--<li class="active"><a href="#">Donec quis dui at dolor tempor</a></li>-->
+                <!--<li><a href="#">Donec quis dui at dolor tempor</a></li>-->
+                <!--<li><a href="#">Donec quis dui at dolor tempor</a></li>-->
+                <!--</div>-->
+
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--fotter-->
+<% include ../pc/footer.ejs %>
+<!--<script type="text/javascript">-->
+<!--$(document).ready(function() {-->
+<!--/*-->
+<!--var defaults = {-->
+<!--containerID: 'toTop', // fading element id-->
+<!--containerHoverID: 'toTopHover', // fading element hover id-->
+<!--scrollSpeed: 1200,-->
+<!--easingType: 'linear' -->
+<!--};-->
+<!--*/-->
+<!--$().UItoTop({ easingType: 'easeOutQuart' });-->
+<!--});-->
+<!--</script>-->
+<!--<a href="#to-top" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>-->
+
+</body>
+</html>

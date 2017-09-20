@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>书来熟往</title>
+    <!--<link rel="stylesheet" href="css/header.css"/>-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/pc/index_main.css"/>
+    <script src="/js/static/jquery-2.2.2.min.js"></script>
+    <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.2.js"></script>-->
+</head>
+<body>
+<% include pc/header.ejs %>
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="x_logo col-md-3 col-md-offset-1 logoimg" title="数来熟往"></div>
+        <div class="col-md-9 col-md-offset-3 col-sm-12 row">
+            <% include pc/search.ejs %>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-md-2 col-md-offset-5 col-sm-12 x_title">
+            <div class="x_title_t">校园超市</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-sm-12 row">
+            <div id="information_show"  class="col-md-12">
+                <% for(var i=0;i<deliver.length;i++){%>
+                <div>
+                    <div class="deliver_block" data-upid="<%=deliver[i].upid%>" data-ubid="<%=deliver[i].uBid%>">
+                        <div class="deliver_img">
+                            <img id="deliver_img_src" style="max-width: 155px;height: 120px;padding:15px 15px"alt="" src="<%if(deliver[i].up_img!=null){ %><%='upload/'+JSON.parse(deliver[i].up_img)[0]%><%}else{%><%='images/static/noimg.png'%>
+    <%}%>"/>
+                        </div>
+                        <div class="deliver_con">
+                            <h4>【标题】<span id="deliver_title"><%=deliver[i].uptitle%></span></h4>
+                            <p class="deliver_conTim">发布的时间 <span id="deliver_time"><%=
+                                      deliver[i].update.substr(0,4)+'-'+deliver[i].update.substr(4,2)+'-'+
+                                      deliver[i].update.substr(6);
+                                    %></span></p>
+                        </div>
+                        <div class="deliver_price">
+                            <p>￥<span id="deliver_price"><%=deliver[i].upprice%></span></p>
+                        </div>
+                        <div class="deliver_author">
+                            <img src="http://imgcdn.xuxian.com/upload/2016/03/21/20160321074415590_464_261.jpg"
+                                 alt=""/>
+                            <p>陌上花开</p>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+            </div>
+            <div class="row">
+                <div class="tcdPageCode col-md-12"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+<% include pc/right_nav.ejs %>
+<% include pc/footer.ejs %>
+
+<script src="js/static/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/static/page.js"></script><!--页码-->
+<script>
+    //分页代码
+    /***********************分页*/
+    $(".tcdPageCode").createPage({/*分页*/
+                pageCount:<%=Math.ceil(num/5) %>,
+            current:1,
+            backFn:function(p){
+        console.log(p);
+    }
+    })
+
+
+
+    //主界面选项卡
+    $('#menucard li').mouseover(function() {
+        var index = $(this).val();
+        $("#menu_main").find('>div:eq(' + index + ')').css({'display': 'block'});
+        $("#menu_main").find('>div').not(':eq(' + index + ')').css({'display': 'none'});
+
+    });
+</script>
+</body>
+</html>

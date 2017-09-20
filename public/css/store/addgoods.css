@@ -1,0 +1,67 @@
+*{margin: 0;padding: 0;}
+/*body{overflow-x: hidden;}*/
+.addgoodsTitle{box-sizing: border-box;}
+
+#addgoodsKind{background-color: #FFFFff;border-bottom: none;}
+
+
+.addgoodsTitle ul li{list-style: none;font-size: 2rem;font-weight: 700;height: 42px;
+line-height: 40px;background-color: #F8F8F8;border-left: solid 1px #ccc;
+    border-bottom: 1px solid #ccc;border-top: 1px solid #ccc;}
+.addgoodsTitle ul li:last-child{border-right: solid 1px #CCCCCC; }
+
+
+.addgoodstop{margin-top: 10px;}
+.addgoodsKindUl{margin-top: 10px;}
+.addgoodsKind{list-style: none;
+text-align: center;line-height: 40px;}
+.addgoodsKind span{margin: 10px 10px 10px 10px;
+    display: block;
+    background-color: #f8f8f8;
+    font-size: 2rem;
+    font-weight: 700;
+    border: solid 1px #CCCCCC;
+    cursor: default;
+}
+.addgoodsKind span:hover{background-color: #FFFFff;}
+
+
+.addkindListUp{background-color: #FFC;height: 50px;
+    text-align: center;line-height: 50px;margin-top: 20px;}
+.addgoodBtn{position:absolute;background-color: #07d;color: #FFFFff;width: 6rem;
+    text-align: center;margin-left: 50%;left: -2.5rem;height: 35px;
+    line-height: 35px;margin-top: 10px;border-radius: 1rem;cursor: pointer;
+
+}
+
+
+/*商品基本信息*/
+.addshopsBaseInput{background-color: #f8f8f8;margin-top: 5px;}
+.addshopsBaseInputright{border-left: solid 3px #FFFFff;}
+.addshopsBaseInputLabel{margin-top: 10px;margin-bottom: 10px;font-size: 1.6rem;}
+
+#shopbaseselect{height: 3rem;font-size: 1.6rem;}
+.addshopsBaseInputLabel input[type='text']{height: 3rem;padding-left: 1rem;}
+
+/*文本编辑*/
+#addgoodsDetailMain{margin-top: 2rem;}
+.addgoodsbaseInput{font-size: 1.6rem;margin-top: 4rem;margin-bottom: 1rem;}
+.addgoodsbaseInput select{height: 2.5rem;}
+
+.addgoodsbaseInputTit{
+    text-align: center;
+    /*padding: 0 20px 0;*/
+    margin-top: 20px;
+    margin-bottom: 15px;
+    line-height: 1px;
+    border-left: 50px solid #CCCCCC;
+    border-right: 50px solid #CCCCCC;
+    font-weight: 800;
+    /*margin-bottom: 5px;*/
+}
+
+/*#addgoodskindMian{display: none;}*/
+#addgoodsbaseMain{display: none;}
+#addgoodsDetailMain{display: none;}
+
+.storeaddgoodemodeimg{width: 100%;}

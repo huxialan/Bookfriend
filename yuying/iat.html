@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+    <title>语音识别</title>
+</head>
+
+<body>
+    <textarea id="result"></textarea>
+	<br>
+
+	<script src="http://blog.faultylabs.com/files/md5.js"></script>
+	<!--<script src="js/md5.js"></script>-->
+<!---->
+	<script src="http://webapi.openspeech.cn/socket.io/socket.io.js"></script>
+	<!--<script src="js/socket.io.js"></script>-->
+<!---->
+	<script src='http://webapi.openspeech.cn/js/util/zepto.min.js'></script>
+	<!--<script src="js/zepto.min.js"></script>-->
+<!---->
+	<script src='http://webapi.openspeech.cn/js/util/jwav.min.js'></script>
+	<!--<script src="js/jwav.js"></script>-->
+<!---->
+	<script src='http://webapi.openspeech.cn/fingerprint.js'></script>
+	<!--<script src="js/fingerprint.js"></script>-->
+
+	<script src="http://webapi.openspeech.cn/iat.min.js"></script>
+
+	<!--<script src="js/iat.js"></script>-->
+	<script type="text/javascript">
+	    /**
+		  * ��ʼ��Session����
+		  */
+	    var session = new IFlyIatSession({
+                                      'url' : 'http://webapi.openspeech.cn/',							
+                                      'reconnection'       : false,
+									  'reconnectionDelay'  : 30000,
+									  'compress' : 'speex',
+									  'speex_path' : './speex.js',              //speex.js����·��
+									  'vad_path' : './vad.js',                  //vad.js����·��
+									  'recorder_path' : './recorderWorker.js'    //recordWorker.js����·��
+						         });
+		
+
+		function start() {
+		    /***********************************************************����ǩ�����������ʵ��Ӧ����Ϣ����***************************************************/
+		 
+		    var appid = '575415e1';//$(appid);                              //Ӧ��APPID����open.voicecloud.cn�����뼴�ɻ��
+		    var timestamp =new Date().toLocaleTimeString();// $(timestamp);                      //��ǰʱ�������new Date().toLocaleTimeString()
+            var expires =6000;// $(expires);                          //ǩ��ʧЧʱ�䣬��λ:ms����60000		
+		    //!!!Ϊ����secretkeyй¶��ǩ���������ô��뽨���ڷ����������
+		   // var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&' + secret_key);
+			var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&eff4211b497374bb');	
+		   /************************************************************����ǩ�����������ʵ��Ӧ����Ϣ����**************************************************/
+		    var params = {"grammar_list" : null, "params" : "aue=speex-wb;-1, usr = mkchen, ssm = 1, sub = iat, net_type = wifi, ent =sms16k, rst = plain, auf  = audio/L16;rate=16000, vad_enable = 1, vad_timeout = 5000, vad_speech_tail = 500, caller.appid = " + appid + ",timestamp = " + timestamp + ",expires = " + expires, "signature" : signature};
+			
+            /* ���ÿ�ʼ¼���ӿڣ�ͨ��function(volume)��function(err, obj)�ص�������ʶ���� */
+		    session.start(params, function (volume)
+		    {	
+                /* ��ȡ��չʾ��ǰ¼������ */			
+			    if(volume < 6 && volume > 0)
+				    console.log("volume : " + volume);
+					
+			    /* ��volume���ظ�ֵ��˵����˷�����ʧ��*/
+			    if(volume < 0)
+				    console.log("��˷�����ʧ��");
+		    }, function (err, result)
+		    {
+			    /* ���ص���errΪ�ջ������Ϊ0����Ự�ɹ�������ȡʶ����������ʾ*/
+		        if(err == null || err == undefined || err == 0)
+			    {
+				    if(result == '' || result == null)
+					    document.getElementById('result').innerHTML = "û�л�ȡ��ʶ����";
+				    else
+					    document.getElementById('result').innerHTML = result;
+			    /* ���ص���err��Ϊ���Ҵ����벻Ϊ0����Ựʧ�ܣ�����ȡ������ */	
+			    } else
+			    {
+			        document.getElementById('result').innerHTML = 'error code : ' + err + ", error description : " + result;
+			    }
+		    }, function(message)
+			{
+				if(message == 'onStop')
+				{
+					console.log("停止");
+				} else if(message == 'onEnd')
+				{
+					console.log("结束");
+				}
+			}, function(data)
+			{
+				console.log(data);
+			});			
+			
+		};
+		
+		function stop() {
+			session.stop(null);
+		};
+	</script>
+	<input type="button" value="开始" onclick="start();"  />
+	<input type="button" value="结束" onclick="stop();"  />
+</body>
+</html>

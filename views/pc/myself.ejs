@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/pc/myself.css"/>
+    <script src="../js/static/jquery-2.2.2.min.js"></script>
+</head>
+
+<body>
+<!--布局方式  上面是一个可以设置的背景图片。
+在它下面是一个导航条显示个人主页
+在他下面的右边是导航  左边是内容显示-->
+<div class="container-fluid">
+    <!--头信息-->
+    <!--% include header.ejs%-->
+    <!--导航信息-->
+    <% include ../myself/myself_nav.ejs %>
+    <div class="myself_main row">
+        <!--<div class="col-xs-2 col-md-offset-1">-->
+            <% include ../myself/myself_left.ejs%>
+        <!--</div>-->
+
+        <div class="myself_right col-md-8 col-xs-8">
+           <!--这里根据判断的内容再来显示-->
+            <%if(right==''){} else if(right=='myDetail'){
+                %><%include ../myself/myself_instro.ejs%>
+           <% }%>
+
+        </div>
+    </div>
+</div>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/pc/myself.js"></script>
+</body>
+</html>

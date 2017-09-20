@@ -1,0 +1,59 @@
+<style>
+    /*右侧选项卡*/
+    #tabs{margin-right: 10px;margin-left: 10px;margin-top: 20px;}
+    #menucard{height: 50px;background-color: #f5f5f5;box-sizing: border-box;
+        border: solid 1px #cccccc;border-bottom: none;}
+    ul{margin:0;}
+    #menucard li:hover{background-color: #84c568;}
+    #menucard li{display: inline-block;text-decoration: none;text-align: center;}
+    #menucard i{padding-right: 5px;}
+    .menu_main{border-right: 1px solid #CCCCCC;
+        border-left:1px solid #CCCCCC;
+        border-bottom:1px solid #CCCCCC;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;}
+    .sianNews{font-size: 1.5rem;text-align: left;}
+    .sianNews a:first-child{margin-top: 10px;}
+    .sianNews a{display: inline-block;padding-top: 10px;
+        padding-bottom: 5px;color: #000000;
+    border-bottom: solid 1px #CCCCCC;margin-left: 20px;width: 100%;}
+    .sianNews a:last-child{border: none;}
+    .sianNews a:hover{color: #0000CC;}
+</style>
+
+<div id="tabs">
+    <ul class="row" id="menucard" >
+        <li class="hover col-md-4" value="0"><i class="glyphicon glyphicon-globe "></i>最新</li>
+        <li class="col-md-4" value="1"><i class="glyphicon glyphicon-check"></i>热门</li>
+        <li class="col-md-4" value="2"><i class="glyphicon glyphicon-sunglasses"></i>活动</li>
+    </ul>
+    <div class="menu_main row" id="menu_main">
+        <div class=" col-md-12 row sianNews">
+            <%if(sina!=undefined){%>
+                <%sina.forEach(function (sina) {%>
+            <a href="<%=sina.sinaurl%>">
+                <div class="col-md-12"><%=sina.sinatitle%></div>
+            </a>
+                  <%  })%>
+
+            <%}else{%>
+            <div class="col-md-12">暂无新闻</div>
+            <%}%>
+        </div>
+        <div class="col-md-12 row sianNews">
+            <div class="col-md-12">评论列表2</div>
+        </div>
+        <div class="col-md-12 row sianNews">
+            <%if(active!=undefined){%>
+            <%active.forEach(function (active) {%>
+            <a href="<%=active.activeurl%>">
+                <div class="col-md-12"><%=active.activetitle%></div>
+            </a>
+            <%  })%>
+
+            <%}else{%>
+            <div class="col-md-12">暂无活动</div>
+            <%}%>
+        </div>
+    </div>
+</div>

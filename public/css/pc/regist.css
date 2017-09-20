@@ -1,0 +1,78 @@
+body{
+    /*background-image: url("../img/img_l/bgtu.jpg");*/
+    background-color:white;
+
+}
+
+
+
+.main{
+    width: 85%;
+    height: 37em;
+    position: relative;
+    left: 15%;
+    top: 2em;
+    /*text-align: center;*/
+    /*border: solid 1px red;*/
+   display: flex;
+    flex-direction: row;
+
+}
+.main_left{
+
+}
+.regHeader{
+    position: relative;
+    top: 5.5em;
+    left: 22em;
+    width: 20em;
+    height: 5em;
+}
+.f_main{
+    /*flex: 5;*/
+    width: 50%;
+    height: 25em;
+    position: relative;
+    top: 8em;
+    left:-5em;
+    text-align: right;
+    /*border: solid 1px red;*/
+}
+[id^="input"]{
+    /*background-color: #f4f4f4;*/
+    /*border:solid 1px #999999;*/
+    /*box-shadow:0 1px 10px rgba(0,0,0,0.8) inset;*/
+}
+[type="submit"]{
+    width: 12em;
+    height: 2.5em;
+   background-color: #c5157a;
+    color:white;
+    font-size: 16px;
+    font-weight: 900;
+}
+[type="submit"]:hover{
+    color: white;
+    background-color:#e45299;
+}
+/*页脚版权信息*/
+.x_footer{
+    /*background: #415967;*/
+    position: relative;
+    top: 2.8em;
+    text-align:center;
+    width:100%;
+    height: 80px;
+
+    bottom: 0;
+    z-index: 0;}
+.footer_list,.x_footer>p{
+    text-align: center;
+    /*color: #ffffff;*/
+}
+.footer_list li{display: inline-block;padding-right: 30px;line-height:50px;}
+/*.footer_list li a{
+    color: #ffffff;
+}*/
+.x_footer>p{font-size: 1.2rem;}
+

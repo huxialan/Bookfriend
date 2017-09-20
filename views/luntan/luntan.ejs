@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <title>Blogname a Blogging Category Flat Bootstarp  Responsive Web Template | Home :: w3layouts</title>
+    <link href="bootstrap/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!--<link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>-->
+    <link rel="stylesheet" href="css/common/common.css"/>
+    <link href="css/luntan/yangshi.css" rel='stylesheet' type='text/css' />
+    <!--<link rel="stylesheet" href="css/index.css"/>-->
+    <!--上还不确定-->
+    <link rel="stylesheet" href="css/luntan/style.css"/>
+    <link rel="stylesheet" href="css/luntan/xuancard.css"/>
+    <!--<link rel="stylesheet" href="fontAwesome/css/font-awesome.min.css"/>-->
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/luntan/pinglun.css">
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />-->
+
+
+    <!--在线编辑器-->
+    <!--<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>-->
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>-->
+    <!--<link href="../umeditor1_2_2-utf8-jsp/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">-->
+    <!--<link href="../css/textsend.css" type="text/css" rel="stylesheet">-->
+    <!--<script type="text/javascript" src="../umeditor1_2_2-utf8-jsp/third-party/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" charset="utf-8" src="../umeditor1_2_2-utf8-jsp/umeditor.config.js"></script>-->
+    <!--<script type="text/javascript" charset="utf-8" src="../umeditor1_2_2-utf8-jsp/umeditor.min.js"></script>-->
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Blogname Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"
+            />
+    <script src="js/jquery-2.2.2.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <!--<link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>-->
+    <!--<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,300italic,400italic,600italic' rel='stylesheet' type='text/css'>-->
+    <!----//webfonts---->
+
+    <!--end slider -->
+
+    <!--jqui-->
+
+    <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script src="jquery-ui-1.11.4.custom/bootstrap.js"></script>
+
+
+    <!--script-->
+    <script type="text/javascript" src="js/luntan/move-top.js"></script>
+    <script type="text/javascript" src="js/luntan/easing.js"></script>
+    <style>
+
+
+    </style>
+
+    <!--评论回复-->
+    <script src="js/luntan/pinglun.js" type="application/javascript" rel="script"></script>
+    <!---->
+
+    <!--/script-->
+    <script type="text/javascript" src="js/luntan/luntan.js"></script>
+    <!---->
+
+
+
+
+    <script>
+
+        var searchtime=1;//判断是否进行滚屏
+        var bb;//存储的搜索数据
+        var bbb=[];//用来显示搜索数据
+        var fff=1;//判断显示到第几个阶段
+        $(function() {
+
+
+            //发帖
+            $('#ffabiao').click(function(){
+//                var arr = [];
+//
+//                arr.push(UM.getEditor('myEditor').getContent());
+                //判断用户是否登陆
+
+                    if( $('#fzhuti').val()!=''&&$('#fneirong').val()!=''){
+                        $.ajax(
+                                {
+                                    type: 'post',
+                                    url: 'http://localhost:3000/luntan/ziyoujiao',
+                                    data: {'fzhuti': $('#fzhuti').val(), 'fneirong': $('#fneirong').val()},
+//                                 表单序列化
+//                                 data:$('#myform').serialize(),
+                                    timeout: 5000,
+                                    success: function (data) {
+                                        location.href='http://localhost:3000/luntan';
+                                    },
+                                    error: function (data) {
+                                    }
+                                }
+                            )
+                    }else{
+                        alert('内容不能为空')
+                    }
+
+            })
+
+
+
+            //搜索
+
+           $('#sousuo').click(function(){
+                $.ajax(
+                        {
+                            type: 'post',
+                            url: 'http://localhost:3000/luntan/sousuo',
+                            data: {'sous':$('#sousuot').val()},
+//                            表单序列化
+//                            data:$('#myform').serialize(),
+                            timeout: 5000,
+                            success: function (data) {
+                                bb=data;
+                                if (data == 0) {
+                                    $('#wenzhang').html('未查到该内容');
+                                } else {
+                                    $('#wenzhang').html('');
+                                    var s = [];
+                                    for (var i = 0; i <7; i++) {
+                                        if (data[i].ppimg != "" && i <= 5) {
+                                            s += '<h3><a href="">' + data[i].ptitle + ' </a>' +
+                                            '</h3><h4>' + data[i].pptime + ' Posted by : <a href="#">' + data[i].uBid + '</a></h4> ' +
+                                            '<p>' + data[i].ppcontent + '</p> <img src="' + data[i].ppimg + '" style="height: 100px;width: 100px"><hr>'
+                                        } else if (i <= 5) {
+                                            s += '<h3><a href="">' + data[i].ptitle + ' </a>' +
+                                            '</h3><h4>' + data[i].pptime + ' Posted by : <a href="#">' + data[i].uBid + '</a></h4> ' +
+                                            '<p>' + data[i].ppcontent + '</p><hr>';
+                                        }else{
+                                            s+='<div class="div_loadMore" style="text-align: center">' +
+                                            '<span class="span_loading_icon"><span class="ajax-loader" style="margin-left: 300px"></span></span>' +
+                                            '<span class="span_loading">RELOAD</span></div>';
+                                            bbb=s;
+                                            searchtime++;
+                                        }
+                                        }
+                                    $('#wenzhang').html(s);
+                                    $('.div_loadMore').hide();
+
+
+                                }
+//                                    $('#wenzhang').html(s);
+                            },
+                            error: function (error) {
+                            }
+                        }
+                )
+            })
+
+
+
+            //搜索滚动
+            $(window).scroll(function () {
+                    //var srollPos = $(window).scrollTop();    //滚动条距顶部距离(页面超出窗口的高度)
+                    var wholeHeight = $(document).height();
+                    var scrollTop = $(this).scrollTop();
+                    var clientHeight = $(this).height();
+                    //console.log("滚动条到顶部的垂直高度: "+$(document).scrollTop());
+                    //console.log("页面的文档高度 ："+$(document).height());
+                    //console.log('浏览器的高度：'+$(window).height());
+                    totalheight = parseFloat(clientHeight) + parseFloat(scrollTop);
+                    if (totalheight >= parseFloat(wholeHeight)-1 && fff<bb.length/6+2 &&searchtime>1) {
+                        $('.div_loadMore').fadeIn(500)
+                        setTimeout(function(){
+                            settime(bb,bbb,fff,function(res){
+                                $('#wenzhang').html(res);
+                                $('.div_loadMore').fadeOut(100);
+                                bbb=res;
+                            })
+                        },500)
+
+                    }
+
+                });
+
+
+
+
+            //图片浏览
+            $('[type=file]').change(function(e) {
+                var file = e.target.files[0];
+                preview1(file);
+            })
+
+
+            })
+
+
+
+        //搜索加载
+        function settime(time,t,f,callbcak) {
+            for (var ss =6*f; ss <6*f+6; ss++) {
+                if(ss>time.length-1){
+                    console.log(ss);
+                    callbcak(t);
+                    searchtime--;
+                }else{
+                    if (time[ss].ppimg != "" ) {
+                        t += '<h3><a href="">' + time[ss].ptitle + ' </a>' +
+                        '</h3><h4>' + time[ss].pptime + ' Posted by : <a href="#">' + time[ss].uBid + '</a></h4> ' +
+                        '<p>' + time[ss].ppcontent + '</p> <img src="' + time[ss].ppimg + '" style="height: 100px;width: 100px"><hr>'
+                    } else {
+                        t += '<h3><a href="">' + time[ss].ptitle + ' </a>' +
+                        '</h3><h4>' + time[ss].pptime + ' Posted by : <a href="#">' + time[ss].uBid + '</a></h4> ' +
+                        '<p>' + time[ss].ppcontent + '</p><hr>';
+                    }
+                    callbcak(t);
+                }
+            }
+
+            fff++;
+        }
+
+
+
+        //回复
+        function huifu(a){
+            var k =a;
+            if($('#h'+k+'').val()!=''){
+                $.ajax(
+                        {
+                            type: 'post',
+                            url: 'http://localhost:3000/luntan/ziyoujiao/huifu',
+                            data: {'huifu': $('#h'+k+'').val(),'kid':k},
+                            timeout: 5000,
+                            success: function (data) {
+                                var s=[];
+                                var f=[];
+//                                var ss=[];
+                                data.forEach(function(huifua){
+                                    if(k == huifua.prflag && huifua.prcontent != ''){
+                                        s+= '<br> <div id="'+huifua.prid+'" style="margin-top: -25px"><p ><img style="width: 30px;height: 30px" src=" '+huifua.ub_img+' " >'+
+                                        '<span style="color:orange"> '+huifua.ubname+' :</span> '+ huifua.prcontent +
+                                        ' <a data-toggle="modal"  data-target="#myModal'+huifua.prid+'" type="button"  style="float: right">回复</a></p></div>'
+                                }
+                                    data.forEach(function(thuifua) {
+                                        if (huifua.prid == thuifua.prflag && thuifua.prcontent != '' && k == thuifua.ppid) {
+                                            s+= ' <br> <div style="margin-top: -25px" id="' + huifua.prid + ' "> ' +
+                                            '<p> <img src="' + thuifua.ub_img + '" style="width: 30px;height: 30px">&nbsp; ' +
+                                            '<span style="color:orange">'+thuifua.ubname+':<span style="color: #0000ff">回复</span>'+huifua.ubname+':</span>'+thuifua.prcontent+' ' +
+                                            '<a  href="#" data-target="#myModal'+thuifua.prid +'" data-toggle="modal" type="button" style="float: right" >回复</a></p> </div>'
+                                        }
+                                       })
+                                    //模态框
+                                    f+='<div class="modal fade" id="myModal'+huifua.prid+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+                                    ' <div class="modal-dialog" role="document"> <div class="modal-content"> ' +
+                                    '<div class="modal-header"> <h4 class="modal-title" id="myModalLabel">回复给'+huifua.ubname+'</h4> </div> ' +
+                                    '<div class="modal-body"> ' +
+                                    '<input style="width: 31em ;height: 2em" type="text"  id="tt'+huifua.prid+'" class="content-grid-head col-md-8 content-main c1 plk" > </div>' +
+                                    ' <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>' +
+                                    ' <button type="button"  class="btn btn-primary" id="t'+huifua.prid+'" onclick="return thuifu(this.id,'+huifua.p_prid+')" data-dismiss="modal" >发送</button>' +
+                                    ' </div> </div> </div> </div>'
+                                })
+                                $('#r'+k).html(s+f);
+                                $('#h'+k).val('');
+                            },
+                            error: function (error) {
+                            }
+                        }
+                )
+            }else{
+                alert('请填写内容')
+            }
+        }
+
+
+       //二级回复
+        function thuifu(a,b) {
+            console.log(b)
+            var k = a.substring(1);
+            //保存的是回复的自增长id
+            $.ajax(
+                    {
+                        type: 'post',
+                        url: 'http://localhost:3000/luntan/ziyoujiao/thuifu',
+                        data: {'tid': k, 'ttext': $('#tt' + k).val(), 'tpid': b},
+                        //传送的是被回复用户的回复id---prid和回复该用户的内容
+                        timeout: 5000,
+                        success: function (data) {
+                            location.reload();
+                        },
+                        error: function (data) {
+                        }
+                    }
+            )
+        }
+
+
+
+        //浏览图片
+        function preview1(file) {
+            var img = new Image();
+            img.src = URL.createObjectURL(file);
+            var url = img.src;
+            var $img = $(img);
+            $img.css({width:'60px',height:'60px'});
+
+            img.onload = function() {
+                URL.revokeObjectURL(url);
+                $('#preview').empty().append($img);
+                $('#previewdel').css('visibility','visible');
+            }
+        }
+
+        //删除浏览图片
+        function picdel(){
+            $('#previewdel').css('visibility','hidden');
+            $('#preview').empty();
+
+        }
+
+        //上传图片o
+        function doUpload() {
+            var formData = new FormData($( "#frmUpload" )[0]);
+            $.ajax({
+                url: 'http://localhost:3000/luntan/upload' ,
+                type: 'POST',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (returndata) {
+                    alert(returndata);
+                },
+                error: function (returndata) {
+                    alert(returndata);
+                }
+            });
+        }
+
+
+
+
+
+        //收藏
+        function shoucang(a){
+            var k=a;
+            $.ajax(
+                    {
+                        type: 'post',
+                        url: 'http://localhost:3000/luntan/shoucang',
+                        data: {'ppid':k},
+//                            表单序列化
+//                            data:$('#myform').serialize(),
+                        timeout: 5000,
+                        success: function (data) {
+                            $('#'+k).html(data);
+                        },
+                        error: function (error) {
+//                                alert('回复成功');
+                        }
+
+                    }
+            )
+        }
+
+
+
+
+        //点赞
+
+        function dianzan(a){
+            var k=a;
+            var m=0;
+            $.ajax(
+                    {
+                        type: 'post',
+                        url: 'http://localhost:3000/luntan/dianzan',
+                        data: {'ppid':k},
+//                            表单序列化
+//                            data:$('#myform').serialize(),
+                        timeout: 5000,
+                        success: function (data) {
+                            data.forEach(function (dz) {
+                                if (dz.ppid == k.substring(1)) {
+                                    m++;
+                                }
+                            });
+                            if(m>0){
+                                $('#'+k).html('已赞');
+                                $('#ztx'+k).html('<img src="'+data[0].ub_img+'" style="width: 20px;height: 20px">&nbsp;')
+                            }else{
+                                $('#'+k).html('点赞');
+                                $('#ztx'+k).html('')
+                            }
+
+//                            $('#'+k).html(data);
+                        },
+                        error: function (error) {
+//                                alert('回复成功');
+                        }
+
+                    }
+            )
+        }
+
+
+
+        //分页
+        function fpage(a){
+            var k=a;
+            $.ajax(
+                    {
+                        type: 'post',
+                        url: 'http://localhost:3000/luntan/page',
+                        data: {'ppage':k},
+//                            表单序列化
+//                            data:$('#myform').serialize(),
+                        timeout: 5000,
+                        success: function (data) {
+                            location.reload();
+                        },
+                        error: function (error) {
+                        }
+
+                    }
+            )
+        }
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+<div class="banner">
+    <div class="header">
+        <% include ../pc/header.ejs %>
+        <div class="container">
+            <% include ../pc/right_nav.ejs %>
+<% include lttoubu.ejs %>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <% include ltwenzhang.ejs %>
+
+        <% include ltfatie.ejs %>
+    </div>
+</div>
+
+
+<% include ../pc/footer.ejs %>
+
+
+
+</body>
+</html>

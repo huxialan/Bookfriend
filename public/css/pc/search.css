@@ -1,0 +1,239 @@
+/*search 搜索*/
+.x_search {
+    margin-top: 4.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logoimg {
+    background: url("/images/static/logo.gif") no-repeat;
+    height: 70px;
+}
+
+
+
+.x_search_input {
+    height: 42px;
+    border: solid 2px #e25763;
+    background-color: #ffffff;
+    min-width: 350px;
+}
+
+.x_search_input > input {
+    height: 38px;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    float: left;
+    /*width: 450px;*/
+}
+
+#btn_search {
+    font-size: 2rem;
+    width: 80px;
+    background-color: #ED7612;
+    height: 40px;
+    color: #ffffff;
+    float: right;
+    border: none;
+    margin-top: -1px;
+    outline: none;
+}
+
+#publication {
+    height: 42px;
+    line-height: 42px;
+    border: solid 1px #FFB38C;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 600;
+    background-color: #fff4E2;
+    color: #e50;
+    width: 120px;
+    margin-left: 2.5em;
+}
+
+#publication:hover {
+    background-color: #F9DCAC;
+}
+
+.x_search_ul_checked {
+    background-color: #F4F4F4;
+}
+
+#x_search_input_l {
+    float: left;
+    height: 41px;
+    line-height: 35px;
+    width: 60px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.x_search_ul {
+    display: none;
+    position: absolute;
+    border: solid 1px #ECDFDF;
+    border-top: none;
+    margin-top: 2px;
+    background-color: #F4F4F4;
+    margin-left: -2px;
+    z-index: 10;
+    padding-bottom: 10px;
+}
+
+.x_search_ul > li {
+    list-style: none;
+    text-align: center;
+    width: 50px;
+}
+
+.x_search_ul li:hover {
+    background-color: #CCCCCC;
+}
+
+@media screen and (max-width: 1000px) {
+    .x_logo {
+        display: none;
+    }
+
+    .x_search_ul {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .x_search {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #publication {
+        float: right;
+    }
+
+    .x_search_input > input {
+        width: 200px;
+    }
+
+}
+
+/*--------------轮播的css----------------*/
+.menu {
+    height: 40px;
+    border-bottom: solid 4px #ED7612;
+}
+
+.menu div {
+    height: 40px;
+    font-family: "myfont";
+}
+
+.menu .all-sort {
+    text-align: center;
+    font-size: 1.8rem;
+    width: 221px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.menu .all-sort a {
+    color: #ffffff;
+    font-weight: 900;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    background-color: #ED7612;
+    border-radius: 10px 10px 0 0;
+    text-decoration: none;
+}
+
+.x_nav_list li a {
+    display: block;
+    width: 100%;
+    color: #000000;
+    text-align: center;
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 40px;
+}
+
+.x_nav_list li a:hover {
+    color: #f5111a;
+}
+
+.x_nav_list li {
+    list-style: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: myfont;
+    display: inline-block;
+}
+
+/* Remove Float */
+.clear {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+}
+
+/*.clearfix:after { content:'\20'; display:block; height:0; clear:both; }
+.clearfix { *zoom:1; }*/
+
+/*二维码*/
+#erweima > img {
+    width: 100%;
+}
+
+.index_lunbo {
+    margin-top: 10px;
+}
+
+/*校园角*/
+.school_corner {;
+    width: 100%;
+    margin-top: 5px;
+    border: solid 1px #f1f1f1;
+    height: 285px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #F4F4F4;
+}
+
+#school_corner_img img {
+    width: 100%;
+    border: solid 2px #878077;
+    padding: 4px;
+    background-color: #e8f592;
+    border-radius: 5px;
+}
+
+.school_corner h2 {
+    line-height: 20px;
+    font-size: 2rem;
+    padding-left: 10px;
+    cursor: default;
+}
+
+.school_corner a {
+    text-decoration: none;
+}
+
+.school_corner div {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    .school_corner {
+        display: none;
+    }
+}

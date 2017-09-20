@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+    <title>录音</title>
+</head>
+
+<body>
+    <textarea id="result"></textarea>
+	<br>
+	<script src="http://blog.faultylabs.com/files/md5.js"></script>	
+	<script src="http://webapi.openspeech.cn/socket.io/socket.io.js"></script>
+	<script src='http://webapi.openspeech.cn/js/util/zepto.min.js'></script>
+	<script src='http://webapi.openspeech.cn/js/util/jwav.min.js'></script>
+	<script src='http://webapi.openspeech.cn/fingerprint.js'></script>
+	<script src="http://webapi.openspeech.cn/iat.min.js"></script>
+	<script type="text/javascript">
+
+	    var session = new IFlyIatSession({
+                                      'url' : 'http://webapi.openspeech.cn/',							
+                                      'reconnection'       : true,
+									  'reconnectionDelay'  : 30000,
+									  'compress' : 'speex',
+									  'speex_path' : './speex.js',              //speex.js����·��
+									  'vad_path' : './vad.js',                  //vad.js����·��
+									  'recorder_path' : './recorderWorker.js'    //recordWorker.js����·��
+						         });
+		
+
+		function start() {
+
+		    var appid = '575415e1';//$(appid);
+		    var timestamp =new Date().toLocaleTimeString();//
+            var expires =6000;// $(expires);
+			var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&eff4211b497374bb');
+		    var params = {"grammar_list" : null,
+				"params" : "aue=speex-wb;-1, " +
+				"usr = mkchen, " +
+				"ssm = 1, " +
+				"sub = iat, " +
+				"net_type = wifi, " +
+				"ent =sms16k, " +
+				"rst = plain, " +
+				"auf  = audio/L16;rate=16000, " +
+				"vad_enable = 1, " +
+				"vad_timeout = 5000, " +
+				"vad_speech_tail = 500, " +
+				"caller.appid = " + appid + "," +
+				"timestamp = " + timestamp + "," +
+				"expires = " + expires,
+				"signature" :'test signature'};
+			
+		    session.start(params, function (volume)
+		    {	
+                /* 获取并展示当前录音音量 */
+			    if(volume < 6 && volume > 0)
+				    console.log("volume : " + volume);
+					
+			    /* 若volume返回负值，说明麦克风启动失败*/
+			    if(volume < 0)
+				    console.log("麦克风启动失败");
+		    }, function (err, result)
+		    {
+			    /* 若回调的err为空或错误码为0，则会话成功，可提取识别结果进行显示*/
+		        if(err == null || err == undefined || err == 0)
+			    {
+				    if(result == '' || result == null)
+					    document.getElementById('result').value = "没有获取到识别结果";
+				    else
+					    document.getElementById('result').value = result;
+			    /*若回调的err不为空且错误码不为0，则会话失败，可提取错误码 */
+			    } else
+			    {
+			        document.getElementById('result').value = 'error code : ' + err + ", error description : " + result;
+			    }
+		    }, function(message)
+			{
+				if(message == 'onStop')
+				{
+					console.log("录音停止");
+				} else if(message == 'onEnd')
+				{
+					console.log("会话结束");
+				}
+			}, function(data)
+			{
+				console.log(data);
+//				document.getElementById('result').value=data;
+			});			
+			
+		};
+		
+		function stop() {
+			session.stop(null);
+		};
+	</script>
+	<input type="button" value="开始" onclick="start();"  />
+	<input type="button" value="结束" onclick="stop();"  />
+</body>
+</html>

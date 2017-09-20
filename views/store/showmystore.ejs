@@ -1,0 +1,26 @@
+<style>
+
+    .index_market ul li{height: 200px;padding: 0 10px 10px 10px;margin-bottom: 20px;margin-top: 20px;
+        display: inline-block;}
+    .index_store{border: solid 1px #fee89d;height: auto;}
+    .index_store:hover{border: solid 1px #d58512;}
+    .index_store a:first-child{display: block;height: 160px;}
+    .index_store a img{height: 160px;width: 100%}
+    .index_store h4{padding: 1px 5px 5px 5px;}
+</style>
+<div class="row index_market">
+    <ul>
+        <%mystore.forEach(function(mystore){%>
+        <li class="col-md-4 col-xs-6">
+            <div class="index_store">
+                <a href="#">
+                    <img src="../storeImg/<%=mystore.ssimg%>" alt=""/>
+                </a>
+                <h4><%=mystore.ssname%></h4>
+                <h6>主要经营：<%=mystore.sstype%></h6>
+            </div>
+        </li>
+        <%})%>
+    </ul>
+
+</div>

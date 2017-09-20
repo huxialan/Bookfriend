@@ -1,0 +1,246 @@
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <style>
+        /*购物车*/
+        .shop_car_top{border-bottom: solid 2px #d58512;}
+        .shop_car_tabT{height: 50px;background-color:#F5F5F5;/*line-height: 40px;*/margin-top: 10px;font-size: 1.2rem;
+            font-family: myfont;border-top: solid 1px #cccccc;border-bottom: solid 1px #cccccc;
+            border-left: solid 2px #d58512;border-right: solid 2px #d58512;padding-top: 10px;}
+        .shop_car_tabT>div:first-child{font-weight: 700;}
+        .shop_flow_tabC{border: solid 1px #cccccc;border-top:none;margin-top: -1px;}
+        .shop_flow_tabC img{margin-top: 10px;height: 100px;margin-bottom: 10px;}
+        .shop_flow_tabC>div{margin-top: 10px;}
+
+        .shop_car_N>div{margin-top: 40px;}
+        .shop_car_N>div:nth-child(3){color: red;font-size: 1.6rem;}
+        .shop_car_N>div i{padding-right: 0.6rem;}
+        .shop_car_flowN>span{width: 20px;height: 20px;text-align: center;display: inline-block;
+            float: left;}
+        .shop_car_flowN>span:nth-child(2){border-top: solid 1px #cccccc;border-bottom: solid 1px #CCCCCC;}
+        .shop_car_flowN>span:not(:nth-child(2)){background-color: #FAFAFA;cursor: pointer;
+            border: solid 1px #CCCCCC;}
+        #shop_del{font-size: 1.6rem;cursor: pointer;}
+        .shop_car_tabCto{border: solid 1px #CCCCCC;border-top: none;height: 60px;}
+        .shop_car_tabCto>div{margin-top: 10px;}
+
+        .shop_car_gold{margin-top: 35px;height: 120px;border: solid 1px #CCCCCC;
+            box-shadow: 0 1px  0 #acc591;}
+        .shop_car_gold>div{display: inline-block;}
+        .shop_car_useGold{border: solid 1px #d58512;width: 120px;height: 30px;text-align: center;
+            line-height: 30px;margin-top: 20px;margin-left: 20px;border-radius: 6px;cursor: pointer;
+            background-color:#FFE4D0;}
+        .shop_car_useGold:hover{background-color:#F0CAB6;}
+
+        .shop_car_upload{background-color: #fafafa;height: 50px;border: solid 1px #CCCCCC;border-top: none;
+        }
+        .shop_car_upload>div{display: inline-block;float: right;height:50px;margin-left: 30px;
+            line-height: 50px;}
+        .shop_car_upload>div:first-child{width: 120px;background-color: #FFE4D0;height: 49px;line-height: 50px;
+            font-size: 1.6rem;font-weight: 600;cursor: pointer;text-align: center;}
+
+        /*最近浏览*/
+        .shop_car_eye{margin-top: 40px;}
+        .shop_datailHeader{background-color: #f5f5f5;height: 40px;
+            border-bottom: solid 1px #ED7612;}
+        .shop_datailHeader>span{border-top: solid 2px #ED7612;font-size: 1.5rem;width: 9rem;
+            display: block;padding-top: 6px;text-align: center;font-weight: 600;
+            border-left: solid 1px #ED7612; border-right: solid 1px #ED7612;height: 40px;background-color: #ffffff;}
+
+        .shop_eye_least{height: 150px;border: solid 1px #CCCCCC;border-top: none;}
+
+        .shop_car_main input[type="checkbox"]{height: 1.2rem;width: 1.2rem;}
+    </style>
+<div class="container-fluid">
+    <div class="row shop_car_top"></div>
+    <div class="container-fluid shop_car_main">
+        <div class="shop_car_flow row">
+            <img class="col-md-6 col-md-offset-3" src="../images/static/flow1.png" alt=""/>
+            <div class="col-md-8 col-md-offset-2">
+                <h3>购物袋</h3>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="row shop_car_tabT">
+                    <div class="col-md-5 col-xs-5">商品</div>
+                    <div class="col-md-7 col-xs-7 row">
+                        <div class="col-md-2 col-xs-2">单价</div>
+                        <div class="col-md-3 col-xs-3">数量</div>
+                        <div class="col-md-2 col-xs-2">小计</div>
+                        <div class="col-md-2 col-xs-2">操作</div>
+                        <div class="col-md-3 col-xs-3">
+                            <input type="checkbox" id="shopCheckAll"/>
+                            <label for="shopCheckAll">全选</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="myCartAll">
+            <%for(var i=0;i<cart.length;i++){%>
+                <div class="col-md-8 col-md-offset-2 row">
+                    <div class="row shop_flow_tabC">
+                        <% if(cart[i].up_img!= null && cart[i].up_img != '') { %>
+                        <a href="http://localhost:3000/deliver/shop?upid=<%=cart[i].upid%>&ubid=<%=cart[i].publishUid%>">
+                            <img class="col-md-2 col-xs-2" src="<%= '../upload/'+JSON.parse(cart[i].up_img)[0]%>" alt=""/>
+                        </a>
+                        <%}else{%>
+                            <a href="http://localhost:3000/deliver/shop?upid=<%=cart[i].upid%>&ubid=<%=cart[i].publishUid%>">
+                            <img class="col-md-2 col-xs-2" src="../images/static/noimg.png" alt=""/>
+                            </a>
+                        <%}%>
+                        <div class="col-md-3 col-xs-3">
+                            <%=cart[i].noise.replace(/<[^>]+>/g, "")%>
+                        </div>
+                        <div class="col-md-7 col-xs-7 row shop_car_N">
+                            <div class="col-md-2 col-xs-2">￥ <%=cart[i].upprice%></div>
+                            <div class="col-md-3 col-xs-3 shop_car_flowN">
+                                <span class="shop_reduce">-</span>
+                                <span class="shop_num">1</span>
+                                <span class="shop_add">+</span>
+                            </div>
+                            <div class="col-md-2 col-xs-2 result_price"><i class="icon-jpy"></i><span><%=cart[i].upprice%></span></div>
+                            <div class="col-md-2 col-xs-2 shop_del" data-shopcarid="<%=cart[i].ucartid%>"><i class="glyphicon glyphicon-trash"></i>
+
+                            </div>
+                            <div class="col-md-2 col-xs-2">
+                                <input type="checkbox" id="<%=cart[i].upid%>" name="shopchecked"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                    <%}%>
+            </div>
+            <!--包邮信息-->
+            <div class="col-md-8 col-md-offset-2">
+               <!-- <div class="row shop_car_tabCto">
+                    <div class="col-md-6">
+                        <span>运费：</span>
+                        <a href="#">首单用户包邮</a>
+                    </div>
+                    <div class="col-md-6 row">
+                        ￥ 6元
+                    </div>
+                </div>-->
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="shop_car_gold row">
+                    <div class="shop_car_useGold">
+                        使用金币 <i class="glyphicon glyphicon-chevron-down"></i>
+                    </div>
+                    <div class="col-md-4 col-md-offset-8">
+                        <span>共 <strong style="font-size: 1.6rem;" id="shop_num">1</strong> 件商品  商品金额</span>
+                        <span style="color: red;font-size: 1.8rem;padding-left: 2rem;"><i class="glyphicon glyphicon-yen"></i>
+                            <strong id="allPrice">11</strong>
+                        </span>
+                    </div>
+                </div>
+                <div class="row shop_car_upload">
+                    <div id="shop_car_up">立即结算</div>
+                    <div>逛好了，去结算商品啦~</div>
+                </div>
+            </div>
+
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="shop_car_eye row">
+                    <div class="shop_datailHeader row"><span>最近浏览</span></div>
+                    <div class="shop_eye_least row">
+                        <div class="shop_eye"></div>
+                        <div class="shop_eye"></div>
+                        <div class="shop_eye"></div>
+                        <div class="shop_eye"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="../js/static/jquery-2.2.2.min.js"></script>
+<script>
+    $('#shop_car_up').click(function(){
+        window.open('./sure_pay.html');
+    })
+
+    //根据data-shopcarid的值设置对于的复选框为选中
+//    var shopcarid = $('#shop_del').attr('data-shopcarid')
+    $('#'+GetQueryString('shop')).attr('checked','true');//设置查找的内容为被选中状态
+
+
+    //获取url的get参数
+    function GetQueryString(name) {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r!=null) return unescape(r[2]); return null;
+    }
+
+    //删除收藏夹的内容
+    $(document).on('click','.shop_del',function() {
+        var shopcarid = $(this).attr('data-shopcarid');
+        var ss = $(this).parent().parent('.shop_flow_tabC');
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:3000/deliver/delcart',
+            data: {'cartid': shopcarid},
+            timeout: 3000,
+            async: false,//设置为同步
+//            cache: false,
+//            contentType: false,
+//            processData: false,
+            success: function (data) {
+//                alert(data)
+                if(data){
+                   ss.remove();
+                }else{
+                    alert('不能删除')
+                }
+            },
+            error: function (e) {
+                alert(e.message);
+            }
+        })
+    })
+
+
+    $(function(){
+        //收藏商品全选
+        $(document).on('click','#shopCheckAll',function() {
+//        alert($(this).prop('checked'))
+            if($(this).prop('checked')){
+                $('.shop_car_N :checkbox').prop('checked','true');
+            }else{
+                $('.shop_car_N :checkbox').removeAttr('checked');
+            }
+//        alert( $('.shop_car_N :checkbox').length)
+            getNumPrice();
+        })
+
+//    <!-- 计算总额-->
+        function getNumPrice(){
+            var all=0;//总价
+            var number=0;//总数量
+            $(".myCartAll :checkbox").each(function(){
+                var price = $(this).parent().prev().prev('.result_price').find('span').text().trim();
+//            alert('价钱是---'+price);
+                if(price=='面议')price=0;
+//            alert($(this).prop('checked'))
+                if($(this).prop('checked')){
+                    all+=parseInt(price);
+                    number++;
+                }
+                $('#shop_num').html(number);
+                $('#allPrice').html(all);
+            });
+        }
+
+//  测是否被选中
+        $(".shop_car_N :checkbox").click(function(){
+            getNumPrice();
+//      alert($(this).prop('checked'))
+        })
+
+    })
+
+
+
+</script>

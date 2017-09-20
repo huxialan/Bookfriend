@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .deliverSuccess{
+            width: 500px;
+            height: 150px;
+            border: solid 1px #000000;
+            margin: 200px auto;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="deliverSuccess">
+
+    <h1><%=content%> <span id="remainSeconds" style="color: red">3</span> 秒自动跳转</h1>
+</div>
+
+
+<script src="../js/static/jquery-2.2.2.min.js"></script>
+<script>
+    var min = $("#remainSeconds").html();
+    var int=window.setInterval("clock()",1000);
+    function clock()
+    {
+        $("#remainSeconds").html(min);
+        min=min-1;
+        if(min==-1){
+            window.clearInterval(int);
+            location.href='http://localhost:3000/';
+        }
+    }
+</script>
+</body>
+</html>

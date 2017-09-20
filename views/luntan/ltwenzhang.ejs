@@ -1,0 +1,368 @@
+<div class="content-grids" id="wenzhangqingkong">
+    <!--这个是文章主页-->
+    <div class="col-md-8 content-main c1" id="wenzhang">
+        <div class="content-grid">
+            <div class="content-grid-head">
+                <h3>置顶话题</h3>
+                <h4>July 24, 2014,Posted by: <a href="#">Admin</a></h4>
+
+                <div class="clearfix"></div>
+            </div>
+            <!--文章-->
+            <div class="content-grid-info">
+                <h3><a href="/luntantext?id=a">果让你在沙漠独自生活7天</a></h3>
+
+                <p>沙漠是地球上最神秘却最诱人的地方之一，如果你一觉醒来在沙漠，被要求要存活7天才能有人来救你，你能怎么办</p>
+                <img src="../img/images/c1.jpg" alt="" style="height: 100px"/>
+                <!--<a class="bttn" href="wenzhang.html">MORE</a>-->
+                <% include ltpinglun.ejs %>
+            </div>
+        </div>
+        <hr>
+
+        <!--<div class="content-grid-sec" >-->
+        <!--<div class="content-sec-info" >-->
+        <!--<h3><a href="wenzhang.html">来一场说走就走的旅行吧</a></h3>-->
+        <!--<h4>Jul 23, 2014, Posted by : <a href="#">Admin</a></h4>-->
+        <!--<p>有没有志同道合的小伙伴，来来来我们约起来</p>-->
+        <!--<img src="../img/images/c2.jpg" alt="" style="height: 100px"/>-->
+        <!--//-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<hr  >-->
+        <!--<div class="content-grid-sec">-->
+        <!--<div class="content-sec-info">-->
+        <!--<h3><a href="wenzhang.html">校园也是存在美得对不对！</a></h3>-->
+        <!--<h4>Jul 23, 2014, Posted by : <a href="#">Admin</a></h4>-->
+        <!--<p>今天路过小吃街，虽然小吃街已经不存在了，但是他留下了很美的景色哈哈</p>-->
+        <!--<img src="../img/images/c3.jpg" alt="" style="height: 100px"/>-->
+        <!--//-->
+        <!--</div>-->
+        <!--</div>-->
+
+
+        <!--发帖-->
+        <%
+        var xsbook = 8;//每页几个内容
+        var bnum = nnum.length;//获得数据库总共数据，得到应该设置的页数
+                atiezi.forEach(function(tiezia){
+        %>
+        <div class="content-grid-sec">
+            <div class="content-sec-info" id="test">
+                <h3><a href="/luntantext?id=<%= tiezia.ppid %>"><%= tiezia.ptitle %></a></h3>
+                <h4> Posted by :<a href="#"><%= tiezia.ubname %></a><span
+                            style="float: right"><%= tiezia.pptime %></span></h4>
+
+                <div style="padding-left: 10px;padding-top: 10px">
+                    <p><%=tiezia.ppcontent %></p>
+                    <% if(tiezia.ppimg != ''){ %>
+                    <img src="<%= tiezia.ppimg %>" style="height: 100px;width: 100px;margin-top: 15px">
+                    <hr>
+                    <% } %>
+                </div>
+                <div>
+                    <div class="gongnenglan">
+                        <!--<div class="pinglun"><span class="glyphicon glyphicon-comment">评论</span></div>-->
+                        <!--<div class="dianzan"><span class="glyphicon glyphicon-thumbs-up">点赞</span></div>-->
+
+                        <!--点赞-->
+                        <%
+                            var dzk = 0;
+                            adianzan.forEach(function (dza) {
+                                if (tiezia.ppid == dza.ppid) {
+                                    dzk++;
+                                }
+                            })
+                        if(dzk > 0){ %>
+                        <div class="dianzank"><span class="glyphicon glyphicon-heart"
+                                                    id="d<%= tiezia.ppid %>"
+                                                    onclick="return dianzan(this.id)">已赞</span></div>
+                        <% } else{ %>
+                        <div class="dianzank"><span class="glyphicon glyphicon-heart"
+                                                    id="d<%= tiezia.ppid %>"
+                                                    onclick="return dianzan(this.id)">点赞</span></div>
+                        <% } %>
+
+
+                        <div class="fenxiang"><span class="glyphicon glyphicon-share">分享</span></div>
+
+
+                        <div class="liulan" style="float: right"><a class="glyphicon glyphicon-sunglasses" >浏览量(121)</a></div>
+                        <!--收藏-->
+                        <%
+                            var sck = 0;
+                            ashoucang.forEach(function (sca) {
+                                if (tiezia.ppid == sca.ppid) {
+                                    sck++;
+                                }
+                            })
+                        if(sck > 0){ %>
+                        <div class="shoucang"><span class="glyphicon glyphicon-heart"
+                                                    id="s<%= tiezia.ppid %>"
+                                                    onclick="return shoucang(this.id)">已收藏</span></div>
+                        <% } else{ %>
+                        <div class="shoucang"><span class="glyphicon glyphicon-heart"
+                                                    id="s<%= tiezia.ppid %>"
+                                                    onclick="return shoucang(this.id)">收藏</span></div>
+                        <% } %>
+
+                    </div>
+
+                    <div id="div1" style="width:200px; margin-left: 210px;display: none">
+                        <img src="../img/images/img/转发.jpg" style="height: 20px">
+                    </div>
+
+
+
+
+                    <!--点赞头像-->
+                    <!--点赞-->
+                    <%
+                        var dztk = 0;
+                        adianzan.forEach(function (dza) {
+                            if (tiezia.ppid == dza.ppid) {
+                                dztk++;
+                            }
+                        })
+                    if(dztk > 0){ %>
+                    <div class="zan" id="zt<%= tiezia.ppid %>">
+                        <span class="glyphicon glyphicon-thumbs-up" id="ztxd<%= tiezia.ppid %>">
+                             <img src="<%=tiezia.ub_img %>" style="width: 20px;height: 20px">&nbsp;
+                        </span>
+                    </div>
+                    <% } else{ %>
+                    <div class="zan" id="zt<%= tiezia.ppid %>">
+                        <span class="glyphicon glyphicon-thumbs-up" id="ztxd<%= tiezia.ppid %>">
+
+                        </span>
+                    </div>
+                    <% } %>
+
+
+
+
+                    <!--<div class="zan" id="zantouxiang1"><span class="glyphicon glyphicon-thumbs-up"></span></div>-->
+
+                    <!--回复-->
+                    <form>
+                        <div id="r<%= tiezia.ppid %>"
+                             style="background-color: #dcdcdc;padding: 18px 20px 1px 20px;word-break:break-all">
+                            <%
+                            ahuifu.forEach(function(huifua){
+                            if(tiezia.ppid == huifua.prflag && huifua.prcontent != ''){
+                            %>
+                            <br>
+                            <div style="margin-top: -25px" id="<%= huifua.prid %>">
+                                <p>
+                                    <img src="<%= huifua.ub_img %>" style="width: 30px;height: 30px">&nbsp;
+                                    <span style="color:orange"><%= huifua.ubname %> :</span> <%= huifua.prcontent %>
+                                    <a href="#" data-target="#myModal<%= huifua.prid %>" data-toggle="modal" type="button"
+                                       style="float: right" >回复</a></p>
+                            </div>
+
+
+                               <%  }%>
+                            <%ahuifu.forEach(function(thuifua){
+                            if(huifua.prid == thuifua.prflag && thuifua.prcontent != ''&&tiezia.ppid == thuifua.ppid){%>
+                            <br>
+
+                            <div style="margin-top: -25px;margin-left: 50px" id="<%= huifua.prid %>">
+                                <p>
+                                    <img src="<%=thuifua.ub_img %>" style="width: 30px;height: 30px">&nbsp;
+                                    <span style="color:orange"><%=thuifua.ubname%>:<span style="color: #0000ff">回复</span><%=huifua.ubname%>:</span> <%=thuifua.prcontent %>
+                                    <a href="#" data-target="#myModal<%=thuifua.prid %>" data-toggle="modal" type="button"
+                                       style="float: right;" >回复</a></p>
+                            </div>
+
+                            <%}%>
+
+                            <%})%>
+
+
+
+
+                            <!--二级回复模态框-->
+                            <div class="modal fade" id="myModal<%= huifua.prid %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel">回复给<%= huifua.ubname %></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input style="width: 31em ;height: 2em" type="text"
+                                                   class="content-grid-head col-md-8 content-main c1 plk" id="tt<%= huifua.prid %>">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                            </button>
+                                            <button type="button" class="btn btn-primary" id="t<%= huifua.prid %>"  onclick="return thuifu(this.id,'<%=huifua.p_prid %>')">发送</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <% }) %>
+                        </div>
+                        <div style="margin-top: 1.5em;">
+                            <input type="text" id="h<%= tiezia.ppid %>" name="huifu"
+                                   class="content-grid-head col-md-8 content-main c1 plk ">
+
+                            <div style="width: 5em ;background-color: #FFC600;height: 2.2em;
+										 display: inline-block;vertical-align: middle;
+										 text-align: center;padding-top: 0.3em" id="<%= tiezia.ppid %>"
+                                 onclick="return huifu(this.id)">发表回复
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+        <!--分页-->
+        <div class="pages">
+            <% for(var i = 1;i < bnum / xsbook + 1;i++){
+            if(bz == i){ %>
+            <div id="<%= i %>" class="<%= i %>" onclick="return fpage(this.id)"
+                 style="display: inline-block;width:20px;height: 20px;text-align: center;background-color: #0000ff"><%= i %></div>
+            <% }else{ %>
+            <div id="<%= i %>" class="<%= i %>" onclick="return fpage(this.id)"
+                 style="display: inline-block;width:20px;height: 20px;text-align: center;"><%= i %></div>
+            <% } %>
+            <% } %>
+        </div>
+
+    </div>
+    <!---->
+    <div class="col-md-8 content-main c2">
+        <div class="content-grid">
+            <div class="content-grid-head">
+                <h3>每周最佳</h3>
+                <h4>July 24, 2014,Posted by: <a href="#">Admin</a></h4>
+
+                <div class="clearfix"></div>
+            </div>
+            <!--文章-->
+            <div class="content-grid-info">
+                <h3><a href="wenzhang.html">基督山伯爵</a></h3>
+
+                <p>《基督山伯爵》长时间受读者欢迎。故事背景跨越了波旁和七月两个王朝，
+                    这时的阶级矛盾极为复杂社会经济与政权结构正在发生巨大变革，
+                    资产阶级与封建贵族正在进行最后的较量，工人阶级作为一支独立的政治力量也走
+                    上了历史舞台。作者作为一个共和主义者本可以将七月革命前后法国的社会矛盾与
+                    阶级斗争表现出来。</p>
+                <img src="../img/images/pic/书本1.jpg" alt="" style="height: 200px;width: 200px;margin-left: 440px"/>
+                <br>
+                <a href="#">我要看</a>
+                <span style="margin-left: 50px">已经有  300  人要看</span>
+                <a class="bttn" href="wenzhang.html">MORE</a>
+            </div>
+        </div>
+        <div class="content-grid-sec">
+            <div class="content-sec-info">
+                <h3><a href="wenzhang.html">百年孤独</a></h3>
+                <h4>Jul 23, 2014, Posted by : <a href="#">Admin</a></h4>
+
+                <p>孤独是布恩迪亚家族的家徽，每一个成员都自觉不自觉地佩戴着它。
+                    同时，孤独在他们的世界里又是一把双刃剑。
+                    他们害怕自己陷于孤独的泥淖，而以自己独特的方式在反抗孤独，
+                    悖论的是他们的生存又离不开这种孤独，他们渴望保持孤独的高傲姿态。
+                    可见，布恩迪亚家族成员的孤独带有一定的矛盾性。</p>
+                <img src="../img/images/pic/书本2.jpg" alt="" style="height: 200px;width: 200px;margin-left: 440px"/>
+                <br>
+                <a href="#">我要看</a>
+                <span style="margin-left: 50px">已经有  300  人要看</span>
+                <a class="bttn" href="wenzhang.html">MORE</a>
+            </div>
+        </div>
+        <div class="pages">
+            <ul>
+                <li><a href="#">上一页</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+    <!---->
+    <div class="col-md-8 content-main c3">
+        <div class="content-grid">
+            <div class="content-grid-head">
+                <h3>巫妖王</h3>
+                <h4>July 24, 2014</h4>
+
+                <div class="clearfix"></div>
+            </div>
+            <!--文章-->
+            <div class="content-grid-info">
+                <p style="font-size: large">有人会睡到晚上吃早饭吗！·</p>
+
+                <div>
+                    <div>
+                        <img src="../img/images/pic/默认头像.png " style="width:30px;height: 30px">
+                        <span style="margin-left: 20px">我觉得我可以做到=。=</span>
+                    </div>
+                    <div style="margin-top: 15px">
+                        <img src="../img/images/pic/默认头像.png " style="width:30px;height: 30px">
+                        <span style="margin-left: 20px">楼上怎么不去si。</span>
+                    </div>
+                    <div style="margin-top: 15px">
+                        <img src="../img/images/pic/默认头像.png " style="width:30px;height: 30px">
+                        <span style="margin-left: 20px">hehehe。</span>
+                    </div>
+
+                    <div style="margin-top: 20px">
+                        <input type="text" id="tab1_pinglun4" class="plk">
+
+                        <div style="width: 5em ;background-color: #FFC600;height: 2em;
+										 display: inline-block;vertical-align: middle;
+										 text-align: center;padding-top: 0.3em" id="send4">发表回复
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-grid-sec">
+            <div class="content-sec-info">
+                <h3><a href="wenzhang.html">我女神每天都去学习我该怎么搭讪</a></h3>
+                <h4>Jul 23, 2014, </h4>
+
+                <div>
+                    <div>
+                        <img src="../img/images/pic/默认头像.png " style="width:30px;height: 30px">
+                        <span style="margin-left: 20px">不要怂</span>
+                    </div>
+                    <div style="margin-top: 20px">
+                        <input type="text" style="height: 2em;
+										 display: inline-block;vertical-align: middle"
+                               id="tab1_pinglun5" class="plk">
+
+                        <div style="width: 5em ;background-color: #FFC600;height: 2em;
+										 display: inline-block;vertical-align: middle;
+										 text-align: center;padding-top: 0.3em" id="send5">发表回复
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pages">
+            <ul>
+                <li><a href="#">上一页</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+    <% include ltsousuo.ejs %>
+</div>

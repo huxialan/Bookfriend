@@ -1,0 +1,199 @@
+
+    <link href="../fontAwesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"/>
+    <style>
+        body{
+            background-color: #f5f6f8;
+        }
+        .index{
+            color:#777;
+        }
+        .index:hover{
+            color:#ED7612;
+        }
+        .breadcrumb{
+            text-align: left;
+            background-color: #f5f6f8;
+        }
+        .breadcrumb > li + li:before {
+            color:#333;
+            content: ">\00a0";
+        }
+        ol li{
+            font-size: small;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color:#333;
+        }
+        .hmain{
+            line-height:1.5em;
+        }
+        .form-group{
+            margin-top: 2em;
+        }
+        .panel{
+            margin-top: -1.5em;
+            box-shadow: 1px 1px 1px 1px #999;
+
+        }
+        .panel-heading{
+            background-color: #f9f9f9;
+
+        }
+        .panel-title{
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+            margin-top: 0.5em;
+        }
+
+        /*下划线*/
+        .panel-title a{
+            text-decoration: none;
+            border-bottom: solid 2px #ED7612;
+            display: block;
+            padding-bottom: 1em;
+            width: 10em;
+        }
+        .hbound{
+            padding-left: 2em;
+        }
+
+        label{
+            font-weight: 500;
+            color: #333;
+        }
+        .himg{
+           height: 5em;
+            margin-top: 2em;
+        }
+        #bauthcode{
+            border-radius: 4px;
+        }
+        #btnbauthcode{
+            position: relative;
+            left: -3em;
+            width:8em;
+            color:#fff;
+            font-weight: 900;
+        }
+        #bstepbtn{
+            margin-top: 1em;
+            width: 10em;
+            color: #fff;
+            font-weight: 900;
+        }
+        #btnbauthcode:focus,#bstepbtn:focus,#bstepbtn_back:focus{
+            outline:0;
+        }
+        @font-face {
+            font-family: myfont;
+            src:url('./fontAwesome/font/VINERITC.TTF');
+        }
+        .hwhy{
+            margin-top: 3em;
+            margin-left: 8em;
+            font-size: 12px;
+            color:#666;
+            text-align: left;
+        }
+        .hwhy>p:first-child{
+            font-size: 14px;
+            color:#333;
+        }
+        .hwhy>a{
+            text-decoration: none;
+        }
+        .panel-footer{
+            border-top: 0;
+            background-color: #fff;
+        }
+
+    </style>
+
+<div class="row">
+    <div class="hmain col-md-offset-3 col-md-9">
+        <div class="row ">
+            <ol class="breadcrumb">
+                <li><strong style="color:#ED7612">|</strong>&nbsp;&nbsp;<a href="#" class="index">我的书来熟往</a></li>
+                <li class="active">设置绑定手机</li>
+            </ol>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title"><a href="#"><div class="hbound">设置绑定手机</div></a></h4>
+            </div>
+
+            <div class="panel-body">
+
+                <div id="bstepone">
+                    <div class="row himg">
+                        <img src="../images/img_h/bstep1.jpg"/>
+                    </div>
+
+                    <div class="row" style="text-align: center;">
+                        <form action="#" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class=" col-md-offset-2 col-md-3 control-label">验证手机：</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="btel" placeholder="请输入手机号" required="required">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-offset-2 col-md-3 control-label">验证码：</label>
+                                <div class="input-group  ">
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="bauthcode" placeholder="短信验证码" disabled="disabled">
+                                    </div>
+                                    <a href="#"><button type="button" class="btn btn-warning" id="btnbauthcode">获取验证码</button></a>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-warning" id="bstepbtn">下一步</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div id="bsteptwo">
+                    <div class="row himg">
+                        <img src="../images/img_h/bstep2.jpg"/>
+                    </div>
+                    <div class="row" style="text-align: center;margin-top: 3em">
+                        <p>恭喜您，您的手机号已绑定成功！</p>
+                        <p> <a href="#"><button type="button" class="btn btn-link" id="bstepbtn_back">返回</button></a>
+                           继续完善个人资料
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="panel-footer">
+                <div class="row hwhy">
+                    <p>为什么验证手机？</p>
+                    <p>1.验证手机可加强账户安全，您可以使用已验证的手机快速找回密码或支付密码；验证手机遇到问题？请<a href="#">联系客服。</a></p>
+                    <p>2.已验证手机可用于接收账户余额变动提醒。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/static/jquery-2.2.2.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function (){
+        $('#bstepone').show();
+        $('#bsteptwo').hide();
+        $('#bstepbtn').click(function(){
+            $('#bstepone').hide();
+            $('#bsteptwo').show();
+        })
+    })
+
+</script>

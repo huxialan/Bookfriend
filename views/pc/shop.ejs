@@ -1,0 +1,193 @@
+    <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/pc/shoping.css"/>
+</head>
+<body>
+<div class="container-fluid shop_main">
+
+    <% include header.ejs %>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class=" col-md-10 x_shop_main">
+                <!--展示单个商品-->
+                <div class="row x_shop_mid">
+                    <div class="col-md-9 row" id="left_x_shop_mid">
+                        <div class="col-md-12"><h3 id="shopshow" data-shopid="<%= shop[0].upid %>">商品展示>></h3></div>
+                        <div class="col-md-5 row x_shop_border">
+                            <div class="x_shop_img col-md-12">
+                                <img src="<% if(shop[0].up_img != null && shop[0].up_img != ''){ %> <%= '../upload/'+JSON.parse(shop[0].up_img)[0] %>
+<% }else{ %> <%= '../images/static/noimg.png' %> <% } %>" alt=""/>
+                            </div>
+                            <div class="x_shop_img_list row col-md-12">
+                                <i class="glyphicon glyphicon-menu-left col-md-1"></i>
+                                <ul class="col-md-9 shop_img_list">
+                                    <% if(shop[0].up_img != null && shop[0].up_img != ''){
+                                    for(var i = 0;i < JSON.parse(shop[0].up_img).length;i++){ %>
+                                    <li>
+                                        <img src="<%= '../upload/'+JSON.parse(shop[0].up_img)[i] %>"/>
+                                    </li>
+
+                                    <% }
+                                    } %>
+                                </ul>
+                                <i class="glyphicon glyphicon-menu-right col-md-1"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-7 row">
+                            <div class="col-xs-12 col-md-12">
+                                <h2 class="x_title x_title_all"><%= shop[0].uptitle %></h2>
+
+                                <p class="x_describe">作者：阿来 &nbsp; 出版社：中国人民大学出版社</p>
+                            </div>
+                            <div class="col-xs-12 col-md-12 x_price_all">
+                                <div><i class="glyphicon glyphicon-yen"></i> <%= shop[0].upprice %></div>
+                                <p>包含运费</p>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <div class="shop_author">联系人： <a href=""><%= userD[0].ubname %></a><span
+                                            class="btn_link_p">联系他</span></div>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <div class="shop_author">学校： <span><%= shop[0].upschool %></span></div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-12 shop_choose">
+                                <div class="shop_author shop_car_flowN col-md-12">
+                                    <div class="shop_num">数量：</div>
+                                    <span id="shop_reduce" aria-disabled="false">-</span>
+                                    <span id="shop_num">1</span>
+                                    <span id="shop_add">+</span>
+                                </div>
+                                <div class="shop_author shop_car_flowN col-md-12">配送方式：
+                                    <% if(shop[0].updelivery != null){ %>
+                                    <input type="radio" name="1" id="song"/><label for="song">送货上门 (限本校)</label>
+                                    <% } %>
+                                    <% if(shop[0].uppost != null){ %>
+                                    <input type="radio" name="1" id="yue" /><label for="yue">约定</label>
+                                    <% } %>
+
+                                    <% if(shop[0].upappoin != null){ %>
+                                    <input type="radio" name="1" id="zi"/><label for="zi">自取</label>
+                                    <% } %>
+
+                                    <% if(shop[0].upinvite != null){ %>
+                                    <input type="radio" name="1" id="you"/><label for="you">邮寄</label>
+                                    <% } %>
+
+                                </div>
+                            </div>
+                            <p class="x_address col-xs-12 col-md-12">地址：5号楼228室</p>
+
+                            <p class="x_address col-xs-12 col-md-12">
+
+                            <div class="x_buy_now">立即购买</div>
+                            <div class="x_add_cart">加入购物车</div>
+                            </p>
+                            <div class="col-xs-12 col-md-12 x_data">
+                                <div>
+                                    <i class="glyphicon glyphicon-time"></i><span>
+                                        <%=
+                                        shop[0].update.substr(0, 4) + '.' + shop[0].update.substr(4, 2) + '.' +
+                                        shop[0].update.substr(6);
+                                        %>
+                                    </span>
+
+                                    <div class="x_icon_left">
+                                        <span id="collect"><i class="glyphicon glyphicon-star-empty"></i>收藏</span>
+                                        <span><i class="glyphicon glyphicon-search"></i>查同类</span>
+                                        <span><i class="glyphicon glyphicon-info-sign"></i>举报</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--展示商品结束-->
+                    </div>
+                    <div class="col-md-3 ">
+                        <div class="shop_author_main row" id="shop_author_main">
+                            <div class="shop_author_logo col-md-12">
+                                <img src="../img/user/user1.jpg" alt=""/>
+                            </div>
+                            <div class="shop_man col-md-12 x_shopManBorder">
+                                <a href="">程先生</a>
+                                <span style="color: red;padding-left: 10px;">(普通用户)</span>
+                            </div>
+                            <div class="shop_man col-md-12">
+                                <p>加入时间 ：&nbsp;<span class="x_shop_data">365天</span></p>
+                            </div>
+                            <div class="shop_man col-md-12">
+                                <span id="x_shop_address">来自：南京大学</span>
+                            </div>
+                            <div class="shop_man col-md-12">
+                                <a href="">查看用户完整信息></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-9 shop_detail_main">
+                        <div class="shop_detail">
+                            <div class="shop_datailHeader"><span>物品详情</span></div>
+                           <!-- <div class="shop_detailCon"><h4><%= shop[0].noise.replace(/<[^>]+>/g, "") %></h4>
+                                <h4>欢迎联系我，谢谢！</h4></div>
+                            <div class="shop_detail_img">
+                                <% if(shop[0].up_img != null && shop[0].up_img != '') { %>
+                                <img src=" <%= '../upload/'+JSON.parse(shop[0].up_img)[0] %>" alt=""/>
+                                <% } %>
+                            </div>-->
+
+
+                        </div>
+                        <div class="shop_detail" id="leave_words">
+                            <div class="shop_datailHeader"><span>留言</span></div>
+                            <% leave_word.forEach(function(result){ %>
+                            <div class="shop_detailCon row">
+                                <div class="col-md-3 col-xs-3 shop_talker"><img src="../img/user/user1.jpg" alt=""/>
+                                </div>
+                                <div class="col-md-9 col-xs-9 shop_talkerCon">
+                                    留言内容： <%= result.uccon %>
+                                </div>
+                                <div class="col-md-9 col-xs-9 shop_backer">
+                                    <span>卖家回复：</span>有个买家留言栏的，在付款之前。
+                                </div>
+                            </div>
+                            <% }) %>
+
+                        </div>
+                        <div class="shop_talkMy">
+                            <div>我来留言</div>
+                            <textarea name="leave_word" id="shop_talkMyId"
+                                      style="width: 100%;height: 80px;padding-left: 10px;"
+                                      placeholder="填写个人留言"></textarea>
+                            <button id="shop_tocker_logon">提交留言</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="shop_bot_main row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+    <% include right_nav.ejs %>
+    <% include footer.ejs %>
+
+</div>
+
+<script src="../js/static/jquery-2.2.2.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/pc/shop.js">
+</script>
+</body>
+</html>

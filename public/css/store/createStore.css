@@ -1,0 +1,107 @@
+/*body{overflow: hidden;}*/
+.createStoreMain{margin-top: 50px;}
+.createStoreTitle{box-sizing: border-box;margin: 0;
+}
+.btnimg{background-color: #e5e5e5;padding: 5px;cursor: pointer;}
+.ul_pics li .img {
+    width: 160px;
+    height: 140px;
+    display: table-cell;
+    vertical-align: middle;
+    position: absolute;
+}
+
+.createstoreimg{height: 130px;}
+.createstoreimg .ul_pics li{margin-top: 10px;  list-style: none;border: 1px #e5e5e5;}
+.createstoreimg .ul_pics li .img{
+    height: 100px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.ul_pics li .img>img{width: 120px;height: 100px;
+}
+
+.createStoreTL{font-size: 2rem;text-align: left;height: 41px;
+    line-height: 40px;background-color: #e5e5e5;}
+.createStoreTL>div{border-left: solid 2px #fff;}
+.createStoreTL>div:first-child{border-left: solid 1px #e5e5e5;}
+.createStoreTL>div:last-child{border-right: 1px solid #e5e5e5;}
+.createStoreTL>div:first-child{background-color: #ED7612;}
+/*创建商店*/
+.createStore{border: 1px solid #e5e5e5;border-top: none;
+padding-bottom: 40px;min-height: 400px;}
+
+.createStoreForm{margin-top: 30px;margin-bottom: 50px;}
+
+.storeAgree a{font-size: 0.8rem;text-decoration: none;}
+
+.storeSC label{font-size: 1.6rem;line-height: 35px;}
+.storeSC input[type='text']{height: 3rem;}
+.storeSC>div{margin-top: 10px;}
+.storeTalk{height: 40px;text-align: center;
+line-height: 35px;border-radius: 5px;background-color: #FCF8E3;}
+.storeSC{text-align:center;}
+
+.storeGoods{border: solid 1px #ccc;height: 41px;display: block;
+line-height: 39px;background-color:#fbfbfb;
+    border-radius: 2px;
+position: absolute;z-index: 2;min-width: 100px;}
+.storeGoods:hover {border-bottom: none;}
+
+.storeGoods-content{
+    display: none;
+    position: absolute;
+    top: 39px;
+    width: 560px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fbfbfb;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    z-index: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.storeGoods-content li{list-style: none; width: 120px;
+    float: left;display: list-item;
+    text-align: -webkit-match-parent;}
+
+
+.info select {
+    border: 1px #ccc solid;
+    background: #FFFFFF;
+}
+
+.location select{height: 40px;
+min-width: 100px;float: left;padding-left: 10px;margin-right: 10px;}
+
+.storeTalka>input{float: left;min-width: 250px;}
+
+#agreementCon{margin-top: 40px;}
+
+.storeUp{width: 14rem;height: 3.5rem;font-size: 2rem;font-weight: 800;margin-top: 15px;
+margin-left: -20%;background-color: #8DB0CE;border: none;outline: none;
+border-radius: 10px;}
+
+
+
+/*模板*/
+.storeMode{padding-top: 20px;font-style: italic;}
+
+.storeModeSelect ul li{list-style: none;width: 204px;height: 220px;;
+border: solid 2px #eff5f2;display: inline-block;margin-left: 10px;}
+
+.storeModeSelect ul li img{height: 100px;width: 100%;}
+.storeModeSelectC h4{text-align: center;}
+.storeModeSelectC{padding-left: 10px;background-color: #f3f5e7;
+padding-right: 10px;padding-top:8px;height: 116px;}
+
+
+.Store_MOde_choose{float: right;font-size: 2rem;color: red;display: none;}
+
+.createStoreModel{display: none;}
+
+/*马上完善商店信息*/
+.createStoreThree{margin: auto;display: none;
+text-align: center;margin-top: 50px;}
+

@@ -1,0 +1,96 @@
+body{
+    /*background-image: url("../img/img_l/bgtu.jpg");*/
+    background-color:white;
+
+}
+
+
+
+.main{
+    width: 87%;
+    height: 37em;
+    position: relative;
+    left: 13%;
+    top: 2em;
+    /*border: solid 1px red;*/
+    display: flex;
+    flex-direction: row;
+
+}
+.main_left{
+
+}
+.regHeader{
+    position: relative;
+    top: 5.5em;
+    left: 19em;
+    width: 20em;
+    height: 5em;
+    color: #666666;
+}
+.f_main{
+    /*flex: 5;*/
+    width: 55%;
+    height: 25em;
+    position: relative;
+    top: 8em;
+    left:-5em;
+    text-align: right;
+    /*border: solid 1px red;*/
+
+}
+/*[id^="input"]{*/
+    /*box-shadow:0 1px 10px rgba(0,0,0,0.8) inset;*/
+/*}*/
+input>.inputAuthcode{
+    border-radius: 2em;
+}
+[type="submit"]{
+    width: 12em;
+    height: 2.5em;
+    background-color: #c5157a;
+    color:white;
+    font-size: 16px;
+    font-weight: 900;
+}
+[type="submit"]:hover{
+    color: white;
+    background-color:#e45299;
+}
+.modal-footer{
+    text-align: center;
+}
+.top{
+    color:#666666;
+}
+.foot{
+    margin-top: 1em;
+    /*text-indent: 3em;*/
+}
+.qq{
+    margin-left: 2em;
+    margin-right: 2em;
+}
+.weibo,.qq,.wechat,.erweima{
+    cursor: pointer;
+}
+.weibo:hover,.qq:hover,.wechat:hover,.erweima:hover{
+    opacity:0.7;
+}
+/*页脚版权信息*/
+.x_footer{
+    position: relative;
+    top: 2.8em;
+    text-align:center;
+    width:100%;
+    height: 80px;
+    bottom: 0;
+    z-index: 0;}
+.footer_list,.x_footer>p{
+    text-align: center;
+
+}
+.footer_list li{display: inline-block;padding-right: 30px;line-height:50px;}
+
+.x_footer>p{font-size: 1.2rem;}
+

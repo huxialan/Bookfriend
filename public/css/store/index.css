@@ -1,0 +1,78 @@
+*{margin: 0;padding: 0;}
+.store_head{height: 80px;border-top: solid 5px #0bc50f;
+border-bottom: solid 1px #a6e1ec;line-height: 70px;}
+
+.storeCon{margin-top: 30px;border: solid 1px #e7e7eb;
+    border-left: none;
+}
+
+/*商店左侧导航*/
+.store_left{
+    padding-top:0;
+    /*min-height: 10px;/*确保在没有内容的时候可以撑开盒子*/
+    border: 1px solid #e7e7eb;
+    border-top: none;
+    border-bottom: none;
+    display: table-cell;
+    vertical-align: top;
+    word-wrap: break-word;
+    word-break: break-all;
+    float:left;
+    min-width: 100px;
+    margin-left: -15px;
+}
+.menu.no_extra {
+    border-top-width: 0;
+    margin-top: 13px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.menu{
+    margin-top:13px;
+    padding-bottom: 6px;
+    border-top: 1px solid #e7e7eb;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.menu-text{
+    margin-left:10px;
+}
+.menu_title {
+    position: relative;
+    padding: 0 30px 0;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    line-height: 34px;
+    color: #8d8d8d;
+}
+.menu_item {
+    line-height: 34px;
+    display: block;
+    /* -webkit-margin-start: 40px;/*左边距距离，也可以用before是上边距距离*/
+    font-family:"Arial Black", Gadget, sans-serif;
+}
+.menu_item a {
+    display: block;
+    padding: 0 0 0 60px;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-decoration:none;
+    color: #222;
+   padding-right: -15px;
+}
+dd.menu_item:hover{
+    background-color:#E6E6E6
+}
+
+/*右侧*/
+.store_right{margin-left: 15px;margin-top: 10px;}
+.storeTitle{margin-bottom: 10px;width: 150px;background-color: blanchedalmond;
+padding: 10px;text-align: center;margin-top: 20px;display: inline-block;
+}
+.storeTitleC{float: right;margin-top: 20px;display: inline-block;}

@@ -1,0 +1,33 @@
+body{
+    background-color: #f5f6f8;
+    font-size: 14px;
+}
+.myself_head{
+    height:200px ;
+    background: url("../img/myself.jpg")repeat-x;
+}
+.myself_head_Ul li{list-style: none;padding-left: 10%;}
+.myself_nav{background-color: #a6e1ec;margin-top: 10px;height: 30px;}
+.myself_nav ul li{list-style: none;padding-left: 10%;display: block;line-height: 30px;
+font-weight: 800;font-family: myfont;}
+
+
+.myself_main{margin-top: 40px;margin-bottom: 10px;
+}
+.myself_left{border: solid 1px #C2CCD1;}
+.myself_right{margin-left: 15px;}
+
+/*左边导航*/
+.myself_menu{margin-left: -15px;margin-right: -15px;}
+.myself_menu dt{margin: 10px auto;font-size: 1.6rem;padding-left: 15px;height: 30px;line-height: 30px;}
+.myself_menu_title{background-color: #a6e1ec;}
+.myself_menu dd:hover{background-color: #a6e1ec;cursor: pointer;}
+.myself_menu dd>a{text-decoration: none;padding: 5px 0 5px 20px;display: block;}
+
+@media screen and (max-width: 980px){
+  .myself_left{margin-left: -240px;width: 260px;opacity: 0;}
+    .myself_left:hover{margin-left: 19px;position: absolute;z-index: 2;opacity: 1; }
+    .myself_right{margin-top: 0;position: absolute;top: 250px;z-index: 1;width: 98%;}
+}
+
+

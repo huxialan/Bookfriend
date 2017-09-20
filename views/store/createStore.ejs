@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/store/createStore.css"/>
+    <link rel="stylesheet" href="../fontAwesome/css/font-awesome.css"/>
+</head>
+<body>
+<% include ../pc/header.ejs%>
+<div class="container-fluid">
+    <div class="row createStoreMain">
+        <div class="col-md-8 col-xs-12 col-md-offset-2 row">
+            <div class="col-md-12 col-xs-12 createStoreTitle">
+                <div class="row createStoreTL">
+                    <div class="col-md-4 col-xs-4">1.创建商店</div>
+                    <div class="col-md-4 col-xs-4">2.选择模板</div>
+                    <div class="col-md-4 col-xs-4">3.完成！  </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12  createStore" >
+                <!--创建商店-->
+                <div id="createStoreOne">
+                    <form action="/">
+                        <div class="storeSC row">
+                            <div class="col-xs-6 col-md-offset-2 row storeSC1">
+                                <label for="storeName" class="col-xs-4">*商店名称</label>
+                                <input type="text" class="col-xs-8" name="storeName" id="storeName" placeholder="商店名称"/>
+                            </div>
+                            <div class="storeTalk col-xs-5 col-md-offset-4">是买家直接看到的店铺的名字，认证后不可修改</div>
+                        </div>
+                        <div class="storeSC row">
+                            <div class="col-xs-6 col-md-offset-2 row storeSC1">
+                                <label for="storeName" class="col-xs-4">*商店图片</label>
+                                <div class="createstoreimg col-xs-8">
+                                    <div><a class="btnimg" id="btnimg">上传图片</a></div>
+                                    <ul id="ul_pics" class="ul_pics clearfix"></ul>
+                                </div>
+                            </div>
+                            <div class="storeTalk col-xs-5 col-md-offset-4">图片上传后每月只能修改一次</div>
+                        </div>
+
+                        <div class="storeSC row">
+                            <div class="col-xs-6 col-md-offset-2 row storeSC1" id="mainGoodsKind">
+                                <label for="storeGoods" class="col-xs-4">*主营商品</label>
+                                <div class="col-xs-4">
+                                <span href="javascript:;" class="storeGoods"><span id="storeGoodschecked">请选择类别</span>
+                               <i class="fa fa-sort-desc"></i>
+                                </span>
+                                    <ul class="storeGoods-content">
+                                        <li data-id="2">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                食品
+                                            </label>
+                                        </li>
+                                        <li data-id="3">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                数码家电
+                                            </label>
+                                        </li>
+
+                                        <li data-id="4">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                礼品鲜花
+                                            </label>
+                                        </li>
+
+                                        <li data-id="5">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                丽人健身
+                                            </label>
+                                        </li>
+
+                                        <li data-id="6">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                美妆
+                                            </label>
+                                        </li>
+
+                                        <li data-id="7">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                家居家纺
+                                            </label>
+                                        </li>
+
+                                        <li data-id="8">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                餐饮外卖
+                                            </label>
+                                        </li>
+
+                                        <li data-id="9">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                家政服务
+                                            </label>
+                                        </li>
+
+                                        <li data-id="10">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                女装
+                                            </label>
+                                        </li>
+
+                                        <li data-id="11">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                箱包配饰
+                                            </label>
+                                        </li>
+
+                                        <li data-id="12">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                休闲娱乐
+                                            </label>
+                                        </li>
+
+                                        <li data-id="13">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                票务
+                                            </label>
+                                        </li>
+
+                                        <li data-id="14">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                男装
+                                            </label>
+                                        </li>
+
+                                        <li data-id="15">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                运动户外
+                                            </label>
+                                        </li>
+
+                                        <li data-id="16">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                酒店客栈
+                                            </label>
+                                        </li>
+
+                                        <li data-id="17">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                海外购
+                                            </label>
+                                        </li>
+
+                                        <li data-id="18">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                亲子
+                                            </label>
+                                        </li>
+
+                                        <li data-id="19">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                日用百货
+                                            </label>
+                                        </li>
+
+                                        <li data-id="20">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                婚庆摄影
+                                            </label>
+                                        </li>
+
+                                        <li data-id="1">
+                                            <label class="radio">
+                                                <input type="radio" name="team_category_1">
+                                                其他
+                                            </label>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="storeTalk col-xs-5 col-md-offset-4">
+                                店铺主营类目及类目细项，
+                                <a href="">请点此查看详情</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-xs-12 storeSC ">
+                            <div class="col-xs-8 col-md-offset-2 row storeSC1">
+                                <label for="s_province" class="col-xs-3">*联系地址</label>
+                                <div class="location col-xs-9">
+                                    <select id="s_province" name="s_province"></select>  
+                                    <select id="s_city" name="s_city" ></select>  
+                                    <select id="s_county" name="s_school"></select>
+                                </div>
+                            </div>
+                            <div class="storeTalka col-xs-5 col-md-offset-4">
+                                <input type="text" name="locationDetail" id="locationDetail" placeholder="详细地址"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-xs-12 storeSC ">
+                            <div class="col-xs-8 col-md-offset-2 row storeSC1">
+                                <div id="agreementCon">
+                                    <input type="checkbox" name="agreement">我已阅读并同意
+                                    <a href="#readme" target="_blank">
+                                        《有赞商家版代理销售服务和结算协议》</a>、<br>
+                                    <a href="#secured_transaction_readme" target="_blank">
+                                        《担保交易服务协议》
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-xs-12 storeSC ">
+                            <div class="col-xs-8 col-md-offset-2 row storeSC1">
+                                <input type="button" id="storeUp" class="storeUp" value="创建店铺"/>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <!--选择模板-->
+                <div class="col-md-12 col-xs-12 createStoreModel" id="createStoreTwo">
+                    <div class="row">
+                        <div class="col-xs-12 storeMode">
+                            <h4>
+                                书来熟往已为您准备了多种行业模板，请根据实际情况任选一种：
+                            </h4>
+                        </div>
+                        <div class="col-xs-12 storeModeSelect">
+                            <ul>
+                                <li>
+                                    <img src="../images/static/mode0.jpg" alt=""/>
+                                    <div class="storeModeSelectC">
+                                        <h4>通用模板</h4>
+                                        <p>
+                                            买家线上下单，卖家快递发货。适合绝大多数商家的微商城经营需要。
+
+                                        <span class="Store_MOde_choose">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </span>
+                                        </p>
+
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <img src="../images/static/mode1.jpg" alt=""/>
+                                    <div class="storeModeSelectC">
+                                        <h4>通用模板</h4>
+                                        <p>
+                                            买家线上下单，卖家快递发货。适合绝大多数商家的微商城经营需要。
+
+                                        <span class="Store_MOde_choose">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </span>
+                                        </p>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div class="col-md-12 col-xs-12 storeSC ">
+                            <div class="col-xs-8 col-md-offset-2 row storeSC1">
+                                <input type="button" id="storeModeUp" class="storeUp" value="选取模板"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="createStoreThree" id="createStoreThree">
+                    <h2>商店创建完成，<a id="createStoreThreeId" href="/store/mystore">点击马上完善商店信息</a></h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%include ../pc/footer.ejs%>
+<script src="../js/static/jquery-2.2.2.min.js"></script>
+<script src="../js/store/area.js"></script>
+<script type="text/javascript" src="../plupload/plupload.full.min.js">//上传文件插件
+</script>
+<script>
+    $(function(){
+        _init_area();
+    })
+    var storeGoods_content = $('.storeGoods-content');
+    var storeGoods = $('.storeGoods');
+    $('.radio').click(function () {
+        $('#storeGoodschecked').html($(this).text());
+        $('.storeGoods-content').css('display','none')
+    });
+    storeGoods.mouseover(function(){
+        $('.storeGoods-content').css('display','block')
+        $(this).css('border-bottom','none');
+    });
+    $('#mainGoodsKind').mouseleave(function () {
+        $('.storeGoods').css('border-bottom','solid 1px #ccc')
+        storeGoods_content.css('display','none')
+    })
+
+    //选择模板
+    $('.storeModeSelect li').click(function () {
+        if($(this).find('.Store_MOde_choose').css('display')=='block'){
+            $(this).css('border','solid 2px #ffffff')
+            $(this).find('.Store_MOde_choose').css('display','none');
+        }else{
+            $('.storeModeSelect').find('li').css('border','solid 2px #ffffff')
+            $('.storeModeSelect').find('li').find('.Store_MOde_choose').css('display','none');
+            $(this).css('border','solid 2px red')
+            $(this).find('.Store_MOde_choose').css('display','block');
+            $('#storeModeUp').attr('data-listId', $(this).index());
+        }
+    })
+
+    //把商店信息添加到数据库
+    $('#storeUp').click(function () {
+        var name = $('#storeName').val().trim();
+        var type = $('#storeGoodschecked').text().trim();
+        var province =$('#s_province').val();
+        var city = $('#s_city').val();
+
+        var school = $('#s_county').val();
+        alert(city)
+        alert(school);
+
+        var locationD = city+"-"+school+"-"+$('#locationDetail').val().trim();
+        alert(locationD);
+//        return;
+//        var username = sessionStorage.getItem('u_name')
+        $.ajax({
+            type: 'get',
+            url: 'http://localhost:3000/store/addstore',
+            data: {'ssname':name,'sstype':type,'sslocatopn':school,'sslocationD':locationD },
+            timeout: 3000,
+            success: function (result) {
+                if(result!=0){
+                    $('#createStoreOne').css('display','none');
+                    $('#createStoreTwo').show(1000);
+                    $('#storeModeUp').attr('data-shopId', result.insertId);
+                    $('#createStoreThreeId').attr('href','/store/mystore?storeNum='+result.insertId);
+                    $('.createStoreTL>div:nth-child(2)').css('background-color','#ED7612')
+                }else{
+                    alert('数据库错误。商店创建失败');
+                }
+            },
+            error: function (e) {
+                alert('创建商店失败');
+            }
+        })
+//        alert(location);
+    })
+    
+    //选取模板
+    $('#storeModeUp').click(function () {
+        var modelist = $(this).attr('data-listid');
+        var shopid = $(this).attr('data-shopid');
+        $.ajax({
+            type: 'get',
+            url: 'http://localhost:3000/store/addmode',
+            data: {'shopid':shopid,'mode': modelist},
+            timeout: 3000,
+            success: function (result) {
+//                alert(result);
+                if(result!=0){
+                    $('#createStoreTwo').css('display','none');
+                    $('#createStoreThree').css('display','block');
+//                    $('#createStoreThree').show(1000);
+                    $('.createStoreTL>div:last-child').css('background-color','#ED7612')
+                }else{
+                }
+            },
+            error: function (e) {
+                alert('创建商店失败');
+            }
+        })
+
+    })
+
+    //-----------------------------------------------------------
+    //-----------------------------------------------------------
+    /*上传文件的js*/
+    var uploader = new plupload.Uploader({
+        runtimes: 'html5,flash,silverlight,html4',
+        browse_button: 'btnimg',
+        url: "http://localhost:3000/upload?path=store",
+//        data:{path:'store'},
+        flash_swf_url: 'plupload/Moxie.swf',
+        silverlight_xap_url: 'plupload/Moxie.xap',
+        filters: {
+            max_file_size: '1024kb',
+            mime_types: [
+                {title: "files", extensions: "jpg,png,gif"}
+            ]
+        },
+        multi_selection: false,//设置多文件上传
+        init:{
+            FilesAdded: function(up, files) {//文件上传前
+                if ($("#ul_pics").children("ul li").length > 2) {
+                    alert("您上传的图片太多了！");
+                    uploader.destroy();
+                } else {
+                    var li = '';
+                    plupload.each(files, function(file) {
+                        li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
+                    });
+                    $("#ul_pics").append(li);
+                    uploader.start();
+                }
+            },
+            UploadProgress: function(up, file) {//文件上传中
+                var percent = file.percent;
+                $("#" + file.id).find('.bar').css({"width": percent + "%"});
+                $("#" + file.id).find(".percent").text(percent + "%");
+            },
+            FileUploaded: function(up, file, info) {//上传成功后的
+                var pathq = '../storeImg/'+info.response;
+                var imgId = info.response.split('.')[0];
+                $("#" + file.id).html("<a href='javascript:void()' title='删除图片' id='"+imgId+"'>删除</a><div class='img'><img src='" + pathq + "'/></div>");//这里可以显示上传文件的名字
+            },
+            Error: function(up, err) {
+                alert('文件上传失败，请从新上传   '+err.message);
+            }
+        }
+    });
+    uploader.init();
+
+    //删除文件由于在ajax的回掉函数中不能获取当前对象，所以在开始的时候要保存当前对象
+    $(document).on('click','#ul_pics li a',function(){
+        //alert('删除吗');
+        var obj = $(this);
+        //获取完全路径
+        var ss = $(this).next().children("img").attr("src");
+        $.ajax(
+                {
+                    type:'get',
+                    url:'http://localhost:3000/deliver/del',
+                    data:{'imgname':ss},
+                    timeout:5000,
+                    success:function(data){
+                        if(data==0){
+                            alert('删除失败')
+                        }
+                        if(data==1){
+                            alert('删除成功');
+                            obj.parent().remove();
+                        }
+                    },
+                    error:function(){
+                        alert('error');
+                    }
+                }
+        )
+    })
+
+</script>
+</body>
+</html>

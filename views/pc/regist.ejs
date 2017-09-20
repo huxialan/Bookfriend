@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+<style>
+    #registmain{margin-top: 80px;}
+    #registmainImg{text-align: center;}
+</style>
+<script src="js/static/jquery-2.2.2.min.js"></script>
+<script src="js/pc/regist.js"></script>
+<% include header.ejs %>
+<div class="container-fluid">
+    <div class="row" id="registmain">
+        <div class="col-md-4 col-md-offset-2" id="registmainImg">
+            <img src="images/logo.gif" alt=""/>
+        </div>
+        <div class="col-md-5">
+            <form action="/index" onsubmit="return checkR();" method="post"  class="form-horizontal" role="form"  >
+                <div class="form-group">
+                    <label for="uname" class="col-sm-2 control-label">用户名</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="uname" class="form-control" id="uname"
+                               placeholder="用户名" required>
+                    </div>
+                    <div class="col-sm-2" id="registname"></div>
+                </div>
+                <div class="form-group">
+                    <label for="upass" class="col-sm-2 control-label">密码</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="upass" class="form-control" id="upass"
+                               placeholder="请输入密码">
+                    </div>
+                    <div class="col-sm-2" id="registpass"></div>
+                </div>
+                <div class="form-group">
+                    <label for="upassl" class="col-sm-2 control-label">确认密码</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="upass" class="form-control" id="upassl"
+                               placeholder="请输入确认密码">
+                    </div>
+                    <div class="col-sm-2" id="registpassl"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="checkbox" checked value="1">
+                                <small>我已经阅读并同意</small><a href="#"><small>《熟来书往用户注册协议》</small></a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" >登录</input>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+<% include footer.ejs%>

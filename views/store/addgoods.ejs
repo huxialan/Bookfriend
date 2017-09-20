@@ -1,0 +1,191 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head lang="en">-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+    <!--<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>-->
+    <link rel="stylesheet" href="../../css/store/addgoods.css"/>
+    <!--文本编辑器-->
+    <script type="text/javascript" charset="utf-8" src="../../kindeditor/kindeditor.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../kindeditor/lang/zh_CN.js"></script>
+<!--</head>-->
+<!--<body>-->
+
+
+    <div class="row addgoodsTitle">
+        <ul>
+            <li class="col-xs-4" id="addgoodsKind">1.选择商品类别</li>
+            <li class="col-xs-4" id="addgoodsbase">2.编辑基本信息</li>
+            <li class="col-xs-4" id="addgoodsDetail">3.编辑商品详情</li>
+        </ul>
+    </div>
+    <!--选择商品类别-->
+    <div id="addgoodskindMian">
+
+        <div class="row addgoodstop ">
+            <div class="col-xs-4 col-md-offset-8">
+                商品类目及类目细项，
+                <a href="">请点此查看详情</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <ul class="addgoodsKindUl">
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>书籍</span></li>
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>衣物</span></li>
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>食品</span></li>
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>美妆</span></li>
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>零食</span></li>
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>数码</span></li>
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>外卖</span></li>
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>培训</span></li>
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>旅游</span></li>
+                <li class="col-md-3 col-xs-4 addgoodsKind"><span>宠物</span></li>
+            </ul>
+        </div>
+
+        <div class="row addkindListUp">
+            <div class="addgoodBtn" id="addgoodsKindNext">下一步</div>
+        </div>
+
+    </div>
+
+    <!--编辑基本信息-->
+    <div id="addgoodsbaseMain">
+        <div class="row addshopsBaseInput">
+            <div class="col-xs-2 ">
+                <h3>基本信息</h3>
+            </div>
+            <div class="col-xs-10 addshopsBaseInputright">
+                <div class="row addshopsBaseInputLabel ">
+                    <span class="col-xs-3">商品类别：</span>
+                   <span class="col-xs-8" id="shopBaseKind">书籍</span>
+                </div>
+                <div class="row addshopsBaseInputLabel">
+                    <span class="col-xs-3">*商品分组：</span>
+                    <select class="col-xs-4" name="shopbaseselect" id="shopbaseselect">
+                        <option value="二手">
+                            二手物品
+                        </option>
+                        <option value="二手">
+                            商店特色
+                        </option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row addshopsBaseInput">
+            <div class="col-xs-2">
+                <h3>商品信息</h3>
+            </div>
+
+
+            <div class="col-xs-10 addshopsBaseInputright">
+                <div class="row addshopsBaseInputLabel">
+                    <div class="col-xs-3">*商品名称：</div>
+                    <div class="col-xs-8">
+                        <input type="text" name="sdtitle" id="sdtitle"/>
+                    </div>
+                </div>
+                <div class="row addshopsBaseInputLabel">
+                    <div class="col-xs-3">*进价：</div>
+                    <div class="col-xs-4">
+                        <input type="text" name="sdpriceold" id="sdpriceold"/>
+                    </div>
+                </div>
+                <div class="row addshopsBaseInputLabel">
+                    <div class="col-xs-3">*售格：</div>
+                    <div class="col-xs-4">
+                        <input type="text" name="sdpricenow" id="sdpricenow"/>
+                    </div>
+
+                </div>
+                <div class="row addshopsBaseInputLabel">
+                    <div class="col-xs-3">*图片：</div>
+                    <div class="col-xs-4">
+                        <input type="text" name="sdimg" id="sdimg"/>
+                    </div>
+                </div>
+                <div class="row addshopsBaseInputLabel">
+                    <div class="col-xs-3">*商品存量</div>
+                    <div class="col-xs-4">
+                        <input type="text" name="sdnumber" id="sdnumber"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row addshopsBaseInput">
+            <div class="col-xs-2">
+                <h3>物流/其他</h3>
+            </div>
+            <div class="col-xs-10 addshopsBaseInputright">
+                <div class="row addshopsBaseInputLabel">
+                    <div class="col-xs-3">*统一物流价格：</div>
+                    <div class="col-xs-4">
+                        <input type="text" name="sdlogistics" id="sdlogistics"/>
+                    </div>
+                </div>
+                <div class="row addshopsBaseInputLabel">
+                    <div class="col-xs-3">*开售时间：</div>
+                    <div class="col-xs-8">
+                        <input type="radio" name="sddate" value="1" id="sddate" checked/>
+                        <label for="sddate">立即开售</label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row addkindListUp">
+            <div class="addgoodBtn" id="addgoodsBaseNext">下一步</div>
+        </div>
+    </div>
+
+    <!--编辑商品详情-->
+    <div id="addgoodsDetailMain">
+        <div class="row">
+            <div class="col-xs-11 col-md-6 ">
+                <h4>模板展示</h4>
+                <img class="storeaddgoodemodeimg" src="../images/static/storeMode.jpg" alt=""/>
+            </div>
+            <div class="col-xs-11 col-md-6">
+                <div class="row addgoodsbaseInput">
+                    <span class="col-xs-4">*商品页模板：</span>
+                    <select class="col-xs-4" name="shopModelSelect" id="shopModelSelect">
+                        <option value="普通版">
+                            普通版
+                        </option>
+                        <option value="简单流畅版">
+                            简单流畅版
+                        </option>
+                    </select>
+                </div>
+
+                <div class="row addgoodsbaseInput">
+                    <span class="col-xs-11 col-md-11 addgoodsbaseInputTit">商品标签简介</span>
+
+                    <textarea class="col-xs-11 col-md-11" name="s_other" id="editor_id" style="width:50px;height:300px;"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row addkindListUp">
+            <div class="addgoodBtn" id="addgoodsDetailNext">上架</div>
+        </div>
+    </div>
+
+<!--<script src="../../js/static/jquery-2.2.2.min.js"></script>-->
+<script src="../../js/store/addgoods.js"></script>
+<script>
+    KindEditor.ready(function(K) {
+        window.editor = K.create('#editor_id');
+    });
+</script>
+
+<!--</body>-->
+<!--</html>-->

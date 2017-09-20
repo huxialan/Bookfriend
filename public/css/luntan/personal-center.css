@@ -1,0 +1,88 @@
+body{
+    background-color: #CCCCCC;
+}
+/*头部*/
+.x_container{width: 100%;}
+.x_header{height: 25px;background-color: #F5F5F5;margin-left: -15px;margin-right: -15px;}
+.x_header_left{margin-left: 100px;}
+.x_header_left div{float: left;line-height: 25px;padding-right: 20px;}
+.x_header_right{float: right;margin-right: 100px;}
+.x_header_list{height: 25px;line-height: 25px;}
+.header_list{height: 25px;line-height: 25px;}
+.header_list table{height: 15px;line-height: 15px;margin-top: 5px;}
+.header_list td{  padding-right: 10px; padding-left: 10px;border-spacing:0;border-right: solid 1px #000000;}
+#last_header_list{  border-right: none; }
+
+.main{
+    width: 90%;
+    border: solid 1px red;
+
+}
+.navbar{
+    width: 100%;
+    position: relative;
+    left: 1em;
+    bottom: -0.5em;
+    background-color: #fff;
+}
+.navbar-header {
+   position: relative;
+    top: 0.6em;
+    left: 0.8em;
+    font-family: "宋体";
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.hshow{
+    width: 70%;
+    height: auto;
+    /*position: relative;*/
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow:2px 2px 2px 2px gray;
+}
+.path{
+    position: relative;
+    left:1em;
+   text-align: left;
+    height:3em;
+    /*background-color: #CCCCCC;*/
+}
+#myTab{
+    position: relative;
+    left: 2em;
+    background-color:#F5F5F5;
+    font-size: 14px;
+    text-indent: 3em;
+}
+
+
+/*页脚版权信息*/
+.x_footer{background: #415967;/*position: absolute;*/width:100%;height: 80px;margin-left: -15px;bottom: 0;/*z-index: 0;*/margin-top: 20px;}
+.footer_list,.x_footer>p{text-align: center;color: #ffffff;}
+.footer_list li{display: inline-block;padding-right: 30px;line-height:50px;}
+.footer_list li a{color: #ffffff;
+}
+.x_footer>p{font-size: 1.2rem;}
+
+
+/*点击商品跳转的界面*/
+
+
+
+/*nav页面滚动事件*/
+/*#x_nav{position: fixed;top: 0;z-index: 1001;}*/
+
+/*字体样式*/
+@font-face {
+    font-family: myfont;
+    src:url('../bootstrap/fonts/simsunb.ttf');
+
+}
+
+
+
+/*index1样式*/
+.x_main_body{background-color: #ffffff;width: 90%;margin: auto;}
+

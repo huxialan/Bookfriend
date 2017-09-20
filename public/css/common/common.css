@@ -1,0 +1,16 @@
+@charset "utf-8";
+/*清除浏览器样式*/
+*{ margin:0; padding:0; }
+body {font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; }
+td,th,caption { font-size:14px;}
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a {text-decoration:none;}
+a:hover { text-decoration:underline; }
+img { border:none; }
+ol,ul,li {list-style:none; }
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;overflow-x: hidden;}
+/* css common */
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }

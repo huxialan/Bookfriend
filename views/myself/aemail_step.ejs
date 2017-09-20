@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>修改邮箱Step</title>
+    <link href="../fontAwesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"/>
+    <style>
+        body{
+            background-color: #f5f6f8;
+        }
+        .hmenu{
+            width: 80%;
+            text-align: center;
+            font-size: 14px;
+            margin: auto;
+            box-shadow: 2px 2px 2px #ccc;
+            background-color: #f5f6f8;
+        }
+
+        .index{
+            color:#777;
+        }
+        .index:hover{
+            color:#ED7612;
+        }
+        .breadcrumb{
+            text-align: left;
+            background-color: #f5f6f8;
+        }
+        .breadcrumb > li + li:before {
+            color:#333;
+            content: ">\00a0";
+        }
+        ol li{
+            font-size: small;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color:#333;
+        }
+        .hmain{
+            line-height: 1.5em;
+        }
+        .form-group{
+           margin-top: 2em;
+        }
+        .panel{
+            margin-top: -1.5em;
+            box-shadow: 1px 1px 1px 1px #999;
+            background-color: #fff;
+        }
+        .panel-heading{
+            background-color: #F9F9F9;
+        }
+        .panel-title{
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+            margin-top: 0.5em;
+
+
+        }
+
+        /*下划线*/
+        .panel-title a{
+            text-decoration: none;
+            border-bottom: solid 2px #ED7612;
+            display: block;
+            padding-bottom: 1em;
+            width: 10em;
+        }
+        .hbound{
+            padding-left: 2em;
+        }
+.panel-body{
+    background-color: #fff;
+}
+        label{
+            font-weight: 500;
+            color: #333;
+        }
+        .himg{
+           height: 5em;
+            margin-top: 2em;
+        }
+
+        #oldemail{
+            position: relative;
+            top: 0.5em;
+        }
+        #aemailcode,#aemailcode1{
+            border-radius: 4px;
+        }
+        #authcodeImg,#authcodeImg1{
+            /*width: 6em;*/
+            height: 2.2em;
+            vertical-align: middle;
+            font-size: 16px;
+            font-weight: bold;
+            background-color:aquamarine;
+        }
+        #change_authcode,#change_authcode1{
+            position: relative;
+            top: 0.5em;
+        }
+        #btnaemail,#btnaemail1{
+            width:8em;
+            color:#fff;
+            font-weight: 900;
+        }
+        #aestepbtn1,#aestepbtn2{
+            margin-top: 1em;
+            width: 10em;
+            color: #fff;
+            font-weight: 900;
+        }
+       #aestepbtn1:focus,#aestepbtn2:focus,#btnaemail:focus,#btnaemail1:focus,#btnaemail_back:focus,#btnaemail_back1:focus,#astepbtn_back:focus{
+            outline:0;
+        }
+        @font-face {
+            font-family: myfont;
+            src:url('./fontAwesome/font/VINERITC.TTF');
+        }
+        .hwhy{
+            margin-top: 3em;
+            margin-left: 8em;
+            font-size: 12px;
+            color:#666;
+            text-align: left;
+        }
+        .hwhy>p:first-child{
+            font-size: 14px;
+            color:#333;
+        }
+        .hwhy>a{
+            text-decoration: none;
+        }
+        .panel-footer{
+            border-top: 0;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="row hmenu">
+    <div class="hmain col-md-offset-3 col-md-9">
+        <!--路径-->
+        <div class="row ">
+            <ol class="breadcrumb">
+                <li><strong style="color:#ED7612">|</strong>&nbsp;&nbsp;<a href="#" class="index">我的书来熟往</a></li>
+                <li class="active">修改邮箱验证</li>
+            </ol>
+        </div>
+        <div class="panel">
+            <!--title-->
+            <div class="panel-heading">
+                <h4 class="panel-title"><a href="#"><div class="hbound">修改邮箱验证</div></a></h4>
+            </div>
+            <!--主体-->
+            <div class="panel-body">
+
+                <!--步骤1，旧邮箱验证-->
+                <div id="aestepone">
+                    <div class="row himg">
+                        <img src="../img/img_h/aemail1.jpg"/>
+                    </div>
+
+                    <div class="row" style="text-align: center;">
+                        <form action="#" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class=" col-md-offset-2 col-md-3 control-label">已验证邮箱：</label>
+                                  <div class="col-md-2" id="oldemail">11*****78@qq.com</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-offset-2 col-md-3 control-label">验证码：</label>
+                                <div class="input-group  ">
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="aemailcode" placeholder="请输入验证码">
+                                    </div>
+                                    <div id="authcodeImg" class="col-md-3 ">d4fw</div>
+                                    <a href="javascript:" id="change_authcode">换一张</a>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                   <button type="submit" class="btn btn-warning" id="aestepbtn1">下一步</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+                <!--步骤2，发邮件-->
+                <div id="aesteptwo">
+                    <div class="row himg">
+                        <img src="../img/img_h/aemail1.jpg"/>
+                    </div>
+
+                    <div class="row" style="text-align: center;">
+                        <p style="margin-top: 2em; font-size: 18px">邮件已发送</p>
+                        <p>请到  <label id="uemail"> <strong style="font-size: 16px">11*****78@qq.com</strong></label>查阅来自书来熟往的邮件，验证邮件24小时有效，</p>
+                        <p>点击邮件中的链接完成绑定邮箱操作。</p>
+                        <div style="margin-top: 2em;">
+                            <a href="#"><button type="button" class="btn btn-warning" id="btnaemail">去邮箱验证</button></a>
+                            <a href="#"><button type="button" class="btn btn-link" id="btnaemail_back">重新发送</button></a>
+                        </div>
+                    </div>
+
+                </div>
+                <!--步骤3，新邮箱-->
+                <div id="aestepthree">
+                    <div class="row himg">
+                        <img src="../img/img_h/aemail2.jpg"/>
+                    </div>
+
+                    <div class="row" style="text-align: center;">
+                        <form action="#" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class=" col-md-offset-2 col-md-3 control-label">验证邮箱：</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="newemail" placeholder="请输入邮箱" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-offset-2 col-md-3 control-label">验证码：</label>
+                                <div class="input-group">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="aemailcode1" placeholder="请输入验证码">
+                                    </div>
+                                    <div id="authcodeImg1" class="col-md-3">d4fw</div>
+                                    <a href="javascript:" id="change_authcode1">换一张</a>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-warning" id="aestepbtn2">下一步</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <!--步骤4，发邮件-->
+                <div id="aestepfour">
+                    <div class="row himg">
+                        <img src="../img/img_h/aemail2.jpg"/>
+                    </div>
+
+                    <div class="row" style="text-align: center;">
+                        <p style="margin-top: 2em; font-size: 18px">邮件已发送</p>
+                        <p>请到  <label id="uemailnew"> <strong style="font-size: 16px">11*****78@qq.com</strong></label>查阅来自书来熟往的邮件，验证邮件24小时有效，</p>
+                        <p>点击邮件中的链接完成绑定邮箱操作。</p>
+                        <div style="margin-top: 2em;">
+                            <a href="#"><button type="button" class="btn btn-warning" id="btnaemail1">去邮箱验证</button></a>
+                            <a href="#"><button type="button" class="btn btn-link" id="btnaemail_back1">重新发送</button></a>
+                        </div>
+                    </div>
+
+                </div>
+                <!--步骤5，完成-->
+                <div id="aestepfive">
+                    <div class="row himg">
+                        <img src="../img/img_h/aemail3.jpg"/>
+                    </div>
+                    <div class="row" style="text-align: center;margin-top: 2em">
+                        <p>恭喜您，邮箱<label id="newemail1"> <strong style="font-size: 16px">79*****10@qq.com</strong></label>已修改完成！</p>
+                        <p>5秒后，将自动返回书来熟往首页</p>
+                        <p> <a href="#"><button type="button" class="btn btn-link" id="astepbtn_back">返回</button></a>个人资料</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--脚注-->
+            <div class="panel-footer">
+                <div class="row hwhy">
+                    <p>为什么要进行身份验证？</p>
+                    <p>1.为了保障您的账户信息安全，在变更账户中的重要信息时需要进行身份验证，感谢您的理解和支持。</p>
+                    <p>2.验证身份遇到问题请<a href="#">联系客服</a>。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/static/jquery-2.2.2.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function (){
+        $('#aestepone').show();
+        $('#aesteptwo').hide();
+        $('#aestepthree').hide();
+        $('#aestepfour').hide();
+        $('#aestepfive').hide();
+        $('#aestepbtn1').click(function(){
+            $('#aestepone').hide();
+            $('#aesteptwo').show();
+            $('#aestepthree').hide();
+            $('#aestepfour').hide();
+            $('#aestepfive').hide();
+        });
+        $('#aestepbtn2').click(function(){
+            $('#aestepone').hide();
+            $('#aesteptwo').hide();
+            $('#aestepthree').hide();
+            $('#aestepfour').show();
+            $('#aestepfive').hide();
+        })
+    })
+
+</script>
+</body>
+</html>

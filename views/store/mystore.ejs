@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>书来熟往~我的商店</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/store/index.css"/>
+    <link rel="stylesheet" href="../fontAwesome/css/font-awesome.css"/>
+    <script src="../js/static/jquery-2.2.2.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <%include storeHeader.ejs%>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 storeCon">
+                <!--左侧导航-->
+                <%include storeLeft.ejs%>
+                <!--右侧由导航显示的信息-->
+                <div class="col-md-10 col-xs-10 store_right">
+
+                    <%switch (store){
+                        case 'addgoods':  %>
+                        <h3 class="storeTitle">添加商品</h3>
+                            <%include ../store/addgoods.ejs%>
+                        <%break;
+                        case 'addgoodskind':  %>
+                            <%%>
+                        <%break;
+                        default:%>
+                        <span class="storeTitle">我的商店</span>
+                        <span class="storeTitleC"><a href="/store/createstore">
+                                <i class="fa fa-plus" aria-hidden="true"> &nbsp;创建商店</i>
+                        </a></span>
+                            <%include ../store/showmystore.ejs%>
+                        <%break;
+                    }
+                    %>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<%include ../pc/footer.ejs%>
+
+<script src="../js/store/store.js"></script>
+</body>
+</html>

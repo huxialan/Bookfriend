@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+    <script src="/js/static/jquery-2.2.2.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        #logo{display: inline-block; position: absolute;z-index: 0;}
+        .indexnav{height: 9rem;}
+        .indexnavList{float: right;padding-right: 10rem;margin-top: 50px;z-index: 1;
+        position: absolute;top:0;right: 0;}
+        .indexnacUL li{font-size: 2rem;}
+        .indexDeliver{background-color: #fefec2;padding: 5px;
+            line-height: 30px;display: block;float: right;
+        border-radius: 10px;
+        position: absolute;right: 10px;top:1rem;}
+        .indexButton{position: absolute;z-index: 1;right: 0;}
+        @media screen and (max-width: 750px){
+           .indexDeliver{top: auto;}
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default indexnav " role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle indexButton" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <img id="logo" src="./logo.png" alt=""/>
+        </a>
+    </div>
+    <div class="collapse navbar-collapse indexnavList" id="example-navbar-collapse">
+        <ul  class="nav navbar-nav indexnacUL">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">二手</a></li>
+            <li><a href="#">校园</a></li>
+            <li><a href="#">论坛</a></li>
+            <li><a href="#">书店</a></li>
+        </ul>
+    </div>
+    <span class="indexDeliver">发布消息</span>
+</nav>
+
+
+
+</body>
+</html>

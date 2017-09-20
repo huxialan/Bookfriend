@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+    <title>��������ʾ��</title>
+</head>
+
+<body>
+    <textarea id="result"></textarea>
+	<br>
+	<script src="http://blog.faultylabs.com/files/md5.js"></script>	
+	<script src="http://webapi.openspeech.cn/socket.io/socket.io.js"></script>
+	<script src='http://webapi.openspeech.cn/js/util/zepto.min.js'></script>
+	<script src='http://webapi.openspeech.cn/js/util/jwav.min.js'></script>
+	<script src='http://webapi.openspeech.cn/fingerprint.js'></script>
+	<script src="http://webapi.openspeech.cn/ise.min.js"></script>
+	<script type="text/javascript">
+	    /**
+		  * ��ʼ��Session����
+		  */
+	    var session = new IFlyIseSession({
+                                      'url' : 'http://webapi.openspeech.cn/',							
+                                      'reconnection'       : true,
+									  'reconnectionDelay'  : 30000,
+									  'compress' : 'speex',
+									  'speex_path' : '../speex.js',              //speex.js����·��
+									  'vad_path' : './vad.js',                  //vad.js����·��
+									  'recorder_path' : './recorderWorker.js'    //recordWorker.js����·��
+						         });
+		
+		/**
+		 * ����¼������ȡʶ����
+		 */
+		function start() {
+		    /***********************************************************����ǩ�����������ʵ��Ӧ����Ϣ����***************************************************	 
+		    var appid = $(appid);                              //Ӧ��APPID����open.voicecloud.cn�����뼴�ɻ��
+		    var timestamp = $(timestamp);                      //��ǰʱ�������new Date().toLocaleTimeString()
+            var expires = $(expires);                          //ǩ��ʧЧʱ�䣬��λ:ms����60000		
+		    //!!!Ϊ����secretkeyй¶��ǩ���������ô��뽨���ڷ����������
+		    var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&' + secret_key);	
+		   /************************************************************����ǩ�����������ʵ��Ӧ����Ϣ����**************************************************/
+			var appid = '575415e1';                              //Ӧ��APPID����open.voicecloud.cn�����뼴�ɻ��
+			var timestamp = new Date().toLocaleTimeString();                      //��ǰʱ�������new Date().toLocaleTimeString()
+			var expires =6000;
+			var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&eff4211b497374bb');
+
+
+			var text = '中文评测示例';
+		    var params = {
+				"params" : "aue=speex-wb;-1," +
+				" usr = mkchen, " +
+				"ssm = 1, " +
+				"sub = see, " +
+				"category=read_sentence, " +
+				"ent = cn, " +
+				"net_type = wifi, " +
+				"rst = plain, " +
+				"auf  = audio/L16;rate=16000, " +
+				"vad_enable = 1, " +
+				"vad_timeout = 5000, " +
+				"vad_speech_tail = 500, " +
+				"caller.appid = " + appid + ", " +
+				"timestamp = " + timestamp + ", " +
+				"expires = " + expires,
+				"usermodelID" : null,
+				"signature" : signature,
+				"text" : text,
+				"text_params" : null,
+				"ent" : 'cn'};
+
+			/* 调用开始录音接口，通过function(volume)和function(err, obj)回调音量和识别结果 */
+		    session.start(params, function (volume)
+		    {
+				/* 获取并展示当前录音音量 */
+				if(volume < 6 && volume > 0)
+				    console.log("volume : " + volume);
+
+				/* 若volume返回负值，说明麦克风启动失败*/
+			    if(volume < 0)
+				    console.log("麦克风启动失败");
+		    }, function (err, result)
+		    {
+				/* 若回调的err为空或错误码为0，则会话成功，可提取评测结果进行显示*/
+		        if(err == null || err == undefined || err == 0)
+			    {
+				    if(result == '' || result == null)
+					    document.getElementById('result').innerHTML = "没有获取到评测结果";
+				    else
+					    document.getElementById('result').innerHTML = result;
+					/* 若回调的err不为空且错误码不为0，则会话失败，可提取错误码 */
+				} else
+			    {
+			        document.getElementById('result').innerHTML = 'error code : ' + err + ", error description : " + result;
+			    }
+		    }, function(message)
+			{
+				if(message == 'onStop')
+				{
+					console.log("录音停止");
+				} else if(message == 'onEnd')
+				{
+					console.log("会话结束");
+				}
+			}, function(data)
+			{
+				console.log(data);
+			});
+
+			/* 读取音频文件 */
+			/*file.onload = function (onEvent) {
+				var arrayBuffer = file.response;
+				if(arrayBuffer)
+				{
+					byteArray = new Int16Array(arrayBuffer);
+					console.log(byteArray.length);
+					window.setTimeout(writeAudioData, 20);
+				}
+			}*/
+		};
+		
+		function writeAudioData()
+		{
+			if(byteArray.length > 320)
+			{
+				window.setTimeout(writeAudioData, 20);
+				var data = byteArray.subarray(0, 320);
+				byteArray = byteArray.subarray(320, byteArray.length);
+				session.writeAudio(data, 2);
+			} else {
+				session.writeAudio(byteArray, 4);
+			}
+		}
+		
+		function stop() {
+			session.stop(null);
+		};
+	</script>
+	<input type="button" value="开始" onclick="start();"  />
+	<input type="button" value="结束" onclick="stop();"  />
+</body>
+</html>
